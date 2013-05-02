@@ -1,0 +1,86 @@
+Altera SOPC Builder Version 12.10 Build 177
+Copyright (c) 1999-2009 Altera Corporation.  All rights reserved.
+
+
+# 2013.05.02 00:39:41 (*) mk_custom_sdk starting
+# 2013.05.02 00:39:41 (*) Reading project /user6/spring13/wy2211/em_system/fin_integrated/new_doom.ptf.
+
+# 2013.05.02 00:39:41 (*) Finding all CPUs
+# 2013.05.02 00:39:41 (*) Finding all available components
+# 2013.05.02 00:39:41 (*) Reading /user6/spring13/wy2211/em_system/fin_integrated/.sopc_builder/install.ptf
+
+# 2013.05.02 00:39:42 (*) Found 63 components
+
+# 2013.05.02 00:39:42 (*) Finding all peripherals
+
+# 2013.05.02 00:39:42 (*) Finding software components
+
+# 2013.05.02 00:39:43 (*) (Legacy SDK Generation Skipped)
+# 2013.05.02 00:39:43 (*) (All TCL Script Generation Skipped)
+# 2013.05.02 00:39:43 (*) (No Libraries Built)
+# 2013.05.02 00:39:43 (*) (Contents Generation Skipped)
+# 2013.05.02 00:39:43 (*) mk_custom_sdk finishing
+# 2013.05.02 00:39:43 (*) Starting generation for system: new_doom.
+
+.
+.
+.
+
+# 2013.05.02 00:39:44 (*) Running Generator Program for cpu_0
+
+# 2013.05.02 00:39:45 (*) Starting Nios II generation
+# 2013.05.02 00:39:45 (*)   Checking for plaintext license.
+# 2013.05.02 00:39:48 (*)   Couldn't query license setup in Quartus directory /opt/altera/altera12.1/quartus
+# 2013.05.02 00:39:48 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+# 2013.05.02 00:39:48 (*)   Plaintext license not found.
+# 2013.05.02 00:39:48 (*)   Checking for encrypted license (non-evaluation).
+# 2013.05.02 00:39:50 (*)   Couldn't query license setup in Quartus directory /opt/altera/altera12.1/quartus
+# 2013.05.02 00:39:50 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+# 2013.05.02 00:39:50 (*)   Encrypted license found.  SOF will not be time-limited.
+# 2013.05.02 00:39:50 (*)   Getting CPU configuration settings
+Warning: currently assigned JTAG instance ID 0 for cpu_0/jtag_debug_module is shared by DoomSRAM.ptf/cpu_0/jtag_debug_module. Reassigned to 1.
+# 2013.05.02 00:39:50 (*)   Elaborating CPU configuration settings
+# 2013.05.02 00:39:50 (*)   Creating all objects for CPU
+# 2013.05.02 00:39:50 (*)     Testbench
+# 2013.05.02 00:39:51 (*)     Instruction decoding
+# 2013.05.02 00:39:51 (*)       Instruction fields
+# 2013.05.02 00:39:51 (*)       Instruction decodes
+# 2013.05.02 00:39:52 (*)       Signals for RTL simulation waveforms
+# 2013.05.02 00:39:52 (*)       Instruction controls
+# 2013.05.02 00:39:52 (*)     Pipeline frontend
+# 2013.05.02 00:39:52 (*)     Pipeline backend
+# 2013.05.02 00:39:56 (*)   Generating HDL from CPU objects
+# 2013.05.02 00:40:07 (*)   Creating encrypted HDL
+# 2013.05.02 00:40:10 (*) Done Nios II generation
+
+# 2013.05.02 00:40:11 (*) Running Generator Program for jtag_uart_0
+
+Warning: currently assigned JTAG instance ID 0 for jtag_uart_0/avalon_jtag_slave is shared by DoomSRAM.ptf/jtag_uart_0/avalon_jtag_slave. Reassigned to 1.
+
+# 2013.05.02 00:40:12 (*) Running Generator Program for sdram_0
+
+.
+
+# 2013.05.02 00:40:13 (*) Running Test Generator Program for sdram_0
+
+# 2013.05.02 00:40:14 (*) Making arbitration and system (top) modules.
+
+# 2013.05.02 00:40:19 (*) Generating Quartus symbol for top level: new_doom
+
+# 2013.05.02 00:40:19 (*) Generating Symbol /user6/spring13/wy2211/em_system/fin_integrated/new_doom.bsf
+
+# 2013.05.02 00:40:19 (*) Creating command-line system-generation script: /user6/spring13/wy2211/em_system/fin_integrated/new_doom_generation_script
+
+# 2013.05.02 00:40:19 (*) Running setup for HDL simulator: modelsim
+
+
+# 2013.05.02 00:40:20 (*) Completed generation for system: new_doom.
+# 2013.05.02 00:40:20 (*) THE FOLLOWING SYSTEM ITEMS HAVE BEEN GENERATED:
+  SOPC Builder database : /user6/spring13/wy2211/em_system/fin_integrated/new_doom.ptf 
+  System HDL Model : /user6/spring13/wy2211/em_system/fin_integrated/new_doom.vhd 
+  System Generation Script : /user6/spring13/wy2211/em_system/fin_integrated/new_doom_generation_script 
+
+# 2013.05.02 00:40:20 (*) SUCCESS: SYSTEM GENERATION COMPLETED.
+
+
+Press 'Exit' to exit.

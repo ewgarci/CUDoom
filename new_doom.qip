@@ -1,0 +1,23 @@
+# clk_0
+# cpu_0
+set_global_assignment -name SDC_FILE [file join $::quartus(qip_path) "cpu_0.sdc"]
+set_global_assignment -name SOURCE_FILE [file join $::quartus(qip_path) "cpu_0.ocp"]
+# jtag_uart_0
+# niosInterface_1_0
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) "niosInterface_hw.tcl"]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "niosInterface.vhd"]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "niosInterface_1_0.vhd"]
+# sdram_0
+# skygen_0
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) "skygen_hw.tcl"]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "skygen.vhd"]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "skygen_0.v"]
+# de2_ps2_0
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) "de2_ps2_hw.tcl"]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "de2_ps2.vhd"]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "de2_ps2_0.v"]
+# null
+set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID "BC305BE672700000013E638966CD"
+set_global_assignment -entity "new_doom" -name IP_TOOL_NAME "sopc"
+set_global_assignment -entity "new_doom" -name IP_TOOL_VERSION "12.1"
+set_global_assignment -entity "new_doom" -name IP_TOOL_ENV "sopc"
