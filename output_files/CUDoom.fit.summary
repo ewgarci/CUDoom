@@ -1,16 +1,16 @@
-Fitter Status : Successful - Thu May  2 01:38:45 2013
+Fitter Status : Successful - Fri May  3 21:10:20 2013
 Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Full Version
 Revision Name : CUDoom
 Top-level Entity Name : top
 Family : Cyclone II
 Device : EP2C35F672C6
 Timing Models : Final
-Total logic elements : 10,943 / 33,216 ( 33 % )
-    Total combinational functions : 10,301 / 33,216 ( 31 % )
-    Dedicated logic registers : 3,142 / 33,216 ( 9 % )
-Total registers : 3194
+Total logic elements : 7,064 / 33,216 ( 21 % )
+    Total combinational functions : 6,356 / 33,216 ( 19 % )
+    Dedicated logic registers : 3,263 / 33,216 ( 10 % )
+Total registers : 3315
 Total pins : 424 / 475 ( 89 % )
 Total virtual pins : 0
-Total memory bits : 138,624 / 483,840 ( 29 % )
-Embedded Multiplier 9-bit elements : 6 / 70 ( 9 % )
+Total memory bits : 355,712 / 483,840 ( 74 % )
+Embedded Multiplier 9-bit elements : 16 / 70 ( 23 % )
 Total PLLs : 1 / 4 ( 25 % )

@@ -1,10 +1,10 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="29f4a98e87cb07882776"/>
+    <hash md5_digest_80b="587add7f7992d0af6cac"/>
   </project>
   <file_info>
-    <file checksum="0x00AB1530" device="EP2C35F672C6" path="CUDoom.sof" usercode="0xFFFFFFFF"/>
-    <file checksum="0x1BBBCBC4" device="EPCS16" path="CUDoom.pof" usercode="0x00000000"/>
+    <file checksum="0x009887A1" device="EP2C35F672C6" path="CUDoom.sof" usercode="0xFFFFFFFF"/>
+    <file checksum="0x1BBD56A0" device="EPCS16" path="CUDoom.pof" usercode="0x00000000"/>
   </file_info>
   <hub_info ir_width="2" node_count="2"/>
   <node_info>

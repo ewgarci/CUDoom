@@ -194,7 +194,8 @@ architecture datapath of top is
   
   signal row_s     : unsigned (8 downto 0);
   signal row_e     : unsigned (8 downto 0);
-  signal rom_out   : unsigned (7 downto 0);
+  signal tex_rom_out   : unsigned (7 downto 0);
+  signal flr_rom_out   : unsigned (7 downto 0);
   signal frame_rate : unsigned (7 downto 0);
   signal state_out : std_LOGIC_VECTOR(11 downto 0);
 
@@ -216,6 +217,9 @@ architecture datapath of top is
 	signal drawStart		: unsigned (31 downto 0);
 	signal drawEnd			: unsigned (31 downto 0);
 	signal colAddrOut		: unsigned (9 downto 0);
+	signal floor_pixel	: unsigned (11 downto 0);
+	signal tmpPosX  		: unsigned (31 downto 0);
+	signal tmpPosY		   : unsigned (31 downto 0);
 
 begin
 
@@ -302,7 +306,8 @@ begin
 	 Row_End 	=> unsigned(mem_out(16 downto 8)), 
 
 	 Col_Color_sky 	=> unsigned(sky_out),    --Need to Modify
-	 Col_Color 	=> rom_out,
+	 Col_Color 	=> tex_rom_out,
+	 Flr_Color	=> flr_rom_out,
 	 Cur_Row		=> Cur_Row,
 	 Cur_Col 	=> Cur_Col
   );
@@ -322,14 +327,32 @@ begin
   
    V4: entity work.texture_rom port map (
     clk 		=> clk_sys,
-	 addr => unsigned(mem_out(1 downto 0)) & tex_pixel,
-	 data => rom_out
+	 tex_addr => unsigned(mem_out(1 downto 0)) & tex_pixel,
+	 flr_addr => "10" & floor_pixel,
+	 --tex_draw	=> tex_draw,
+	 tex_data => tex_rom_out,
+	 flr_data => flr_rom_out
   );
   
   V5: entity work.mem256 port map (
 		clock			=> clk_sys,
 --		data			=> data_out,
-		data			=> x"FFFFFFFFFFFFFFFFFFFFF" & "00" & std_LOGIC_VECTOR(data_out(169 downto 160)) & x"FFFFFFFFFFFFFFFFFFFFFFFF"  & isSide & "0" & STD_LOGIC_VECTOR(line_minus_h(17 downto 0)) & STD_LOGIC_VECTOR(invline(17 downto 0)) & STD_LOGIC_VECTOR(drawStart(8 downto 0)) & STD_LOGIC_VECTOR(drawEnd(8 downto 0)) & STD_LOGIC_VECTOR(texX(5 downto 0)) & STD_LOGIC_VECTOR(texNum(1 downto 0)),
+		data			=> x"FFFFFFFFFFFFFFFFFFFFF" & "00" & 
+							std_LOGIC_VECTOR(data_out(169 downto 160)) & 
+							x"FFF"  & 
+							STD_LOGIC_VECTOR(invdist_out(11 downto 0)) &  
+							STD_LOGIC_VECTOR(tmpPosY(17 downto 0)) & 
+							STD_LOGIC_VECTOR(tmpPosX(17 downto 0)) & 
+							STD_LOGIC_VECTOR(floorY(17 downto 0)) & 
+							STD_LOGIC_VECTOR(floorX(17 downto 0)) & 
+							isSide & "0" & 
+							STD_LOGIC_VECTOR(line_minus_h(17 downto 0)) & 
+							STD_LOGIC_VECTOR(invline(17 downto 0)) & 
+							STD_LOGIC_VECTOR(drawStart(8 downto 0)) & 
+							STD_LOGIC_VECTOR(drawEnd(8 downto 0)) & 
+							STD_LOGIC_VECTOR(texX(5 downto 0)) & 
+							STD_LOGIC_VECTOR(texNum(1 downto 0)),
+							
 		rdaddress 	=> STD_LOGIC_VECTOR(Cur_Col),
 		wraddress	=> STD_LOGIC_VECTOR(colAddrOut),
 --		wraddress	=>  data_out(255 downto 246),
@@ -362,6 +385,8 @@ begin
 				texX			=> texX,
 				floorX		=> floorX,
 				floorY		=> floorY,
+				tmpPosXout  => tmpPosX,
+				tmpPosYout  => tmpPosY,
 				countout		=> countout,
 				line_minus_h => line_minus_h,
 				invline      => invline,
@@ -372,6 +397,17 @@ begin
 				state_out	 => state_out,
 				WE          => write_en,
 				ready 		=>	data_rdy
+	);
+	
+	V8: entity work.floorMod port map (
+			clk					=> clk_sys,
+			floorX				=> unsigned(mem_out(81 downto 64)),
+			floorY				=> unsigned(mem_out(99 downto 82)),
+			tmpPosX				=> unsigned(mem_out(117 downto 100)),
+			tmpPosY				=> unsigned(mem_out(135 downto 118)),
+			invDistWall			=> unsigned(mem_out(147 downto 136)),
+			y						=> Cur_Row(8 downto 0),
+			textureIndexOut	=> floor_pixel
 	);
 
   

@@ -1,4 +1,9 @@
 v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,floorMod:V8|lpm_mult:Mult3|mult_i8t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,floorMod:V8|lpm_mult:Mult4|mult_i8t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,floorMod:V8|lpm_mult:Mult1|mult_i8t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,floorMod:V8|lpm_mult:Mult2|mult_i8t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,floorMod:V8|lpm_mult:Mult0|mult_m8t:auto_generated|mac_out2,
 DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,tex_gen:V3|lpm_mult:Mult0|mult_s8t:auto_generated|mac_out2,
 DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,new_doom:V1|cpu_0:the_cpu_0|cpu_0_mult_cell:the_cpu_0_mult_cell|altmult_add:the_altmult_add_part_1|mult_add_l0u2:auto_generated|ded_mult_2o81:ded_mult1|mac_out3,
 DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,new_doom:V1|cpu_0:the_cpu_0|cpu_0_mult_cell:the_cpu_0_mult_cell|altmult_add:the_altmult_add_part_2|mult_add_n0u2:auto_generated|ded_mult_2o81:ded_mult1|mac_out3,

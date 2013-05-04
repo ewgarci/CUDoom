@@ -1,22 +1,28 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="CUDoom">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|floorMod:V8|lpm_mult:Mult1" CBX_FILE_NAME="mult_i8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|mem256:V5|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_olo1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_bht_module:cpu_0_bht|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_8pf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|floorMod:V8|lpm_mult:Mult2" CBX_FILE_NAME="mult_i8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_dc_data_module:cpu_0_dc_data|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_29f1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_dc_tag_module:cpu_0_dc_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_2ef1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_dc_victim_module:cpu_0_dc_victim|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_9vc1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_nios2_oci:the_cpu_0_nios2_oci|cpu_0_nios2_oci_im:the_cpu_0_nios2_oci_im|cpu_0_traceram_lpm_dram_bdp_component_module:cpu_0_traceram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_e502.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_nios2_oci:the_cpu_0_nios2_oci|cpu_0_nios2_ocimem:the_cpu_0_nios2_ocimem|cpu_0_ociram_lpm_dram_bdp_component_module:cpu_0_ociram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_c572.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_register_bank_a_module:cpu_0_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_87f1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|jtag_uart_0:the_jtag_uart_0|jtag_uart_0_scfifo_w:the_jtag_uart_0_scfifo_w|scfifo:wfifo" CBX_FILE_NAME="scfifo_1n21.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|floorMod:V8|lpm_mult:Mult3" CBX_FILE_NAME="mult_i8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_mult_cell:the_cpu_0_mult_cell|altmult_add:the_altmult_add_part_1" CBX_FILE_NAME="mult_add_l0u2.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|jtag_uart_0:the_jtag_uart_0|jtag_uart_0_scfifo_r:the_jtag_uart_0_scfifo_r|scfifo:rfifo" CBX_FILE_NAME="scfifo_1n21.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|tex_gen:V3|lpm_mult:Mult0" CBX_FILE_NAME="mult_s8t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|texture_rom:V4|altsyncram:Mux7_rtl_0" CBX_FILE_NAME="altsyncram_l3v.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|floorMod:V8|lpm_mult:Mult0" CBX_FILE_NAME="mult_m8t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|floorMod:V8|lpm_mult:Mult4" CBX_FILE_NAME="mult_i8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_ic_data_module:cpu_0_ic_data|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_qed1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_ic_tag_module:cpu_0_ic_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_d5g1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_mult_cell:the_cpu_0_mult_cell|altmult_add:the_altmult_add_part_2" CBX_FILE_NAME="mult_add_n0u2.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_register_bank_b_module:cpu_0_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_97f1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|lpm_add_sub:Add24" CBX_FILE_NAME="add_sub_8ri.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_bht_module:cpu_0_bht|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_8pf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_dc_tag_module:cpu_0_dc_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_2ef1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_dc_victim_module:cpu_0_dc_victim|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_9vc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|new_doom:V1|cpu_0:the_cpu_0|cpu_0_nios2_oci:the_cpu_0_nios2_oci|cpu_0_nios2_oci_im:the_cpu_0_nios2_oci_im|cpu_0_traceram_lpm_dram_bdp_component_module:cpu_0_traceram_lpm_dram_bdp_component|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_e502.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

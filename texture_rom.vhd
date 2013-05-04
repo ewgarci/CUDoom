@@ -5,8 +5,11 @@ use ieee.numeric_std.all;
 entity texture_rom is
 port(
 	clk : in std_logic;
-	addr : in unsigned (13 downto 0);
-	data : out unsigned (7 downto 0)
+	tex_addr : in unsigned (13 downto 0);
+	flr_addr : in unsigned (13 downto 0);
+	tex_data : out unsigned (7 downto 0);
+	flr_data : out unsigned (7 downto 0)
+
 );
 end texture_rom;
 
@@ -290,10 +293,14 @@ x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"
 
 begin
 
-process(addr)
+process(tex_addr, flr_addr)
 begin
-	
-	data <= ROM(to_integer(addr));
-
+	if rising_edge(clk) then
+		--if tex_draw = '1' then
+			tex_data <= ROM(to_integer(tex_addr));
+		--else
+			flr_data <= ROM(to_integer(flr_addr));
+		--end if;
+	end if;
 end process;
 end rtl;

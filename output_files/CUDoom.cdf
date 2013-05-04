@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C35F672) Path("/user6/spring13/wy2211/em_system/fin_integrated/output_files/") File("CUDoom.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C35F672) Path("/home/user6/spring13/yx2213/CUDoom/output_files/") File("CUDoom.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

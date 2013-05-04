@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for CUDoom
-Thu May  2 01:39:14 2013
+Fri May  3 21:10:44 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -88,13 +88,13 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------+
-; SDC File List                                     ;
-+---------------+--------+--------------------------+
-; SDC File Path ; Status ; Read at                  ;
-+---------------+--------+--------------------------+
-; cpu_0.sdc     ; OK     ; Thu May  2 01:39:12 2013 ;
-+---------------+--------+--------------------------+
++-------------------------------------------------------------------------------------+
+; SDC File List                                                                       ;
++-------------------------------------------------+--------+--------------------------+
+; SDC File Path                                   ; Status ; Read at                  ;
++-------------------------------------------------+--------+--------------------------+
+; ../../wy2211/em_system/fin_integrated/cpu_0.sdc ; OK     ; Fri May  3 21:10:43 2013 ;
++-------------------------------------------------+--------+--------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -300,7 +300,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Thu May  2 01:39:07 2013
+    Info: Processing started: Fri May  3 21:10:39 2013
 Info: Command: quartus_sta CUDoom -c CUDoom
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -340,14 +340,14 @@ Info (332164): Evaluating HDL-embedded SDC commands
     Info (332165): Entity sld_jtag_hub
         Info (332166): create_clock -period 10MHz -name altera_reserved_tck [get_ports {altera_reserved_tck}]
         Info (332166): set_clock_groups -asynchronous -group {altera_reserved_tck}
-Info (332104): Reading SDC File: 'cpu_0.sdc'
+Info (332104): Reading SDC File: '../../wy2211/em_system/fin_integrated/cpu_0.sdc'
 Warning (332125): Found combinational loop of 7 nodes
     Warning (332126): Node "Equal0~4|combout"
     Warning (332126): Node "counter[0]~0|datad"
     Warning (332126): Node "counter[0]~0|combout"
     Warning (332126): Node "Equal0~3|datad"
     Warning (332126): Node "Equal0~3|combout"
-    Warning (332126): Node "Equal0~4|datab"
+    Warning (332126): Node "Equal0~4|dataa"
     Warning (332126): Node "counter[0]~0|datab"
 Warning (332060): Node: CLOCK_50 was determined to be a clock but was found without an associated clock assignment.
 Warning (332060): Node: counter[10] was determined to be a clock but was found without an associated clock assignment.
@@ -386,9 +386,9 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 390 megabytes
-    Info: Processing ended: Thu May  2 01:39:14 2013
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Peak virtual memory: 376 megabytes
+    Info: Processing ended: Fri May  3 21:10:44 2013
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
 
 

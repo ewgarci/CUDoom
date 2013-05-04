@@ -38,34 +38,6 @@ architecture rtl of framerate_calc is
   
 begin
 
---  frameRate_Gen : process (clk)
---  begin
---    if rising_edge(clk) then
---		if clk_count = CLOCK_1_SECOND then
---			frame_rate <= frame_count;
---			clk_count <= (others => '0');
---		else
---			clk_count <= clk_count + 1;
---		end if;
---	end if;
---  end process frameRate_Gen;
---  
---  frame_counter : process (clk, wr_addr)
---  begin
---    if rising_edge(clk) then     
---			if wr_addr = MAX_COLUMN -1 and prev_wr_addr = MAX_COLUMN -2 then
---				frame_count <= frame_count + 1;
---			end if;
---			
-----			if clk_count = CLOCK_1_SECOND then
-----				frame_count <= (others => '0');
-----			end if;
---			
---			prev_wr_addr <= wr_addr;
---		end if;
---  end process frame_counter;
-
-
   frame_counter : process (clk, wr_addr)
   begin
   if rising_edge(clk) then

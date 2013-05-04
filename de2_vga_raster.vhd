@@ -28,6 +28,7 @@ entity de2_vga_raster is
 	 is_Side 	 : in std_logic;
 --  line_height : in unsigned (8 downto 0);
 	 Col_Color 	 : in unsigned (7 downto 0);
+	 Flr_Color 	 : in unsigned (7 downto 0);
 	 Col_Color_sky 	 : in unsigned (7 downto 0);
 	 
 	 Row_Start   : in unsigned (8 downto 0);
@@ -82,7 +83,8 @@ architecture rtl of de2_vga_raster is
   
   signal Texture_h, Texture_v, Texture : std_logic;  -- texture area
   
-
+  signal Floor_Draw : std_logic;
+  signal Rf, Gf, Bf : unsigned(9 downto 0);
 
 begin
 
@@ -228,7 +230,7 @@ begin
     if rising_edge(clk) then
       if reset = '1' then       
 			Col_Draw_sky <= '0';
-		elsif (Cur_Row_local < Row_Start) then
+		elsif (Cur_Row_local <= Row_Start) then
 			Col_Draw_sky <= '1';
 		else
 			Col_Draw_sky <= '0';
@@ -236,36 +238,19 @@ begin
     end if;
   end process ColumnVGen_sky;
   
---  TextureHGen : process (clk)
---  begin
---    if rising_edge(clk) then     
---      if reset = '1' or Hcount = HSYNC + HBACK_PORCH + TEXTURE_HSTART then
---        texture_h <= '1';
---      elsif Hcount = HSYNC + HBACK_PORCH + TEXTURE_HEND then
---        texture_h <= '0';
---      end if;      
---    end if;
---  end process TextureHGen;
---
---  TextureVGen : process (clk)
---  begin
---    if rising_edge(clk) then
---      if reset = '1' then       
---        texture_v <= '0';
---      elsif EndOfLine = '1' then
---        if Vcount = VSYNC + VBACK_PORCH - 1 + TEXTURE_VSTART then
---          texture_v <= '1';
---        elsif Vcount = VSYNC + VBACK_PORCH - 1 + TEXTURE_VEND then
---          texture_v <= '0';
---        end if;
---      end if;      
---    end if;
---  end process TextureVGen;
---
---  texture <= texture_h and texture_v;
-
---texture <= '0';
-
+   FloorVGen : process (clk)
+  begin
+    if rising_edge(clk) then
+      if reset = '1' then       
+			Floor_Draw <= '0';
+		elsif (Cur_Row_local >= Row_End) then
+			Floor_Draw <= '1';
+		else
+			Floor_Draw <= '0';
+    	end if;      
+    end if;
+  end process FloorVGen;
+  
   ColorGen : process(Col_Color)
   begin
 		  R <= Col_Color(7 downto 5) & Col_Color(7 downto 5) & Col_Color(7 downto 5) & Col_Color(7);
@@ -280,6 +265,13 @@ begin
         G_sky <=  Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4);
         B_sky <=  Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0);
 	end process ColorGen_sky;
+	
+	FloorGen : process(Flr_Color)
+  begin
+		  Rf <= Flr_Color(7 downto 5) & Flr_Color(7 downto 5) & Flr_Color(7 downto 5) & Flr_Color(7);
+        Gf <= Flr_Color(4 downto 2) & Flr_Color(4 downto 2) & Flr_Color(4 downto 2) & Flr_Color(4);
+        Bf <= Flr_Color(1 downto 0) & Flr_Color(1 downto 0) & Flr_Color(1 downto 0) & Flr_Color(1 downto 0) & Flr_Color(1 downto 0);
+	end process FloorGen;
 
   -- Registered video signals going to the video DAC
 
@@ -302,6 +294,10 @@ begin
         VGA_R <= R_sky;
         VGA_G <= G_sky;
         VGA_B <= B_sky;
+		elsif Floor_Draw = '1' then
+        VGA_R <= Rf;
+        VGA_G <= Gf;
+        VGA_B <= Bf;
       elsif vga_hblank = '0' and vga_vblank ='0' then
         VGA_R <= "0000000000";
         VGA_G <= "0000000000";
