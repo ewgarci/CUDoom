@@ -61,10 +61,11 @@ begin
 	
 		currentDist := DIVTABLE(to_integer(480 - y_local));
 		weight := currentDist * invDistWall;
-		tmp := "1000000000000" - weight(24 downto 12);
+		tmp := "1000000000000" - weight(23 downto 12);
 		
-		currentFloorX := (weight(24 downto 12) * floorX + tmp * tmpPosX);
-		currentFloorY := (weight(24 downto 12) * floorY + tmp * tmpPosY);
+		currentFloorX := (weight(23 downto 12) * floorX + tmp * tmpPosX);
+		currentFloorY := (weight(23 downto 12) * floorY + tmp * tmpPosY);
+		
 		
 		floorTexX := currentFloorX(23 downto 18);
 		floorTexY := currentFloorY(23 downto 18);

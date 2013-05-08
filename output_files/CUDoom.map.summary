@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri May  3 21:09:17 2013
+Analysis & Synthesis Status : Successful - Wed May  8 14:44:14 2013
 Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Full Version
 Revision Name : CUDoom
 Top-level Entity Name : top
 Family : Cyclone II
-Total logic elements : 7,355
-    Total combinational functions : 6,352
-    Dedicated logic registers : 3,336
-Total registers : 3336
+Total logic elements : 14,040
+    Total combinational functions : 13,040
+    Dedicated logic registers : 3,636
+Total registers : 3636
 Total pins : 424
 Total virtual pins : 0
-Total memory bits : 355,712
-Embedded Multiplier 9-bit elements : 16
+Total memory bits : 334,976
+Embedded Multiplier 9-bit elements : 18
 Total PLLs : 1

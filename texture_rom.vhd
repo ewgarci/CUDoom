@@ -4,11 +4,20 @@ use ieee.numeric_std.all;
 
 entity texture_rom is
 port(
-	clk : in std_logic;
+
+	--clk : in std_logic;
 	tex_addr : in unsigned (13 downto 0);
-	flr_addr : in unsigned (13 downto 0);
-	tex_data : out unsigned (7 downto 0);
-	flr_data : out unsigned (7 downto 0)
+--	side_in  : in std_logic;
+--	texNum_in : in unsigned (3 downto 0);
+--	texNum2_in : in unsigned (3 downto 0);
+--	bool_in   : in std_logic;
+--	
+--	side_out  : out std_logic;
+--	texNum_out : out unsigned (3 downto 0);
+--	texNum2_out : out unsigned (3 downto 0);
+--	bool_out   : out std_logic;
+	tex_data : out unsigned (7 downto 0)
+
 
 );
 end texture_rom;
@@ -287,20 +296,32 @@ x"49",x"49",x"49",x"49",x"49",x"25",x"25",x"25",x"25",x"25",x"25",x"25",x"25",x"
 x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"24",x"49",
 x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49",x"49"
 
-
-
 );
 
-begin
+signal tex_data_sig : unsigned (7 downto 0) ;
 
-process(tex_addr, flr_addr)
+begin 
+
+--process (clk)
+--
+--begin
+--
+--if (rising_edge(clk)) then
+--	side_out <= side_in;
+--	bool_out <= bool_in;
+--	texNum_out <= texNum_in;
+--	texNum2_out <= texNum2_in;
+--	
+--end if;
+
+
+--end process; 
+
+process(tex_addr)
 begin
-	if rising_edge(clk) then
-		--if tex_draw = '1' then
-			tex_data <= ROM(to_integer(tex_addr));
-		--else
-			flr_data <= ROM(to_integer(flr_addr));
-		--end if;
-	end if;
+	
+	tex_data <=ROM(to_integer(tex_addr));
+	
 end process;
+
 end rtl;

@@ -179,9 +179,11 @@ architecture datapath of top is
   signal clk_dram : std_logic := '0';
   signal clk_sys : std_logic := '0';
   signal clk25 : std_logic := '0';
-  signal reset_n : std_logic := '0';
+  signal clk25_shift : std_logic := '1';
+  signal reset_n : std_logic := '0'; 
+  signal VGA_BLANK_SIG : std_logic := '0'; 
   signal counter : unsigned(15 downto 0);
-  
+ 
   signal data_out    : STD_LOGIC_VECTOR (255 downto 0);
   signal mem_out 		: STD_LOGIC_VECTOR (255 downto 0);
   signal data_out1    : STD_LOGIC_VECTOR (63 downto 0);
@@ -189,7 +191,8 @@ architecture datapath of top is
   signal Cur_Col     : unsigned (9 downto 0);
 
   signal Cur_Row 		: unsigned (9 downto 0);
-  signal tex_pixel	: unsigned (11 downto 0);
+  signal cur_row_from_mem : unsigned (9 downto 0);
+  signal tex_addr	: unsigned (13 downto 0);
   signal ctrl 			: std_logic := '0';
   
   signal row_s     : unsigned (8 downto 0);
@@ -205,28 +208,48 @@ architecture datapath of top is
   
    signal data_rdy		: std_logic;
 	signal isSide			: std_logic;
+	signal isSide2			: std_logic;
+	signal sideOut       : std_logic;
 	signal write_en		: std_logic;
+	signal bool          : std_logic;
+	
+	signal boolToTex     : std_logic;
+	signal texNumToTex   : unsigned (3 downto 0);
+	signal texNum2ToTex  : unsigned (3 downto 0);
+	signal sideToTex     : std_logic;
+	
+	signal boolOut       : std_logic;
 	signal texNum			: unsigned (3 downto 0);
+	signal texNum2       : unsigned (3 downto 0);
+	signal texNumOut	   : unsigned (3 downto 0);
+	signal texNum2Out    : unsigned (3 downto 0);
 	signal texX				: unsigned (31 downto 0);
+	signal texX2			: unsigned (31 downto 0);
 	signal floorX			: unsigned (31 downto 0);		
 	signal floorY			: unsigned (31 downto 0);
-	signal countout		: unsigned (31 downto 0);
 	signal line_minus_h	: unsigned (31 downto 0);
 	signal invline			: unsigned (31 downto 0);
+	signal line_minus_h2	: unsigned (31 downto 0);
+	signal invline2	   : unsigned (31 downto 0);
 	signal invdist_out	: unsigned (31 downto 0);
 	signal drawStart		: unsigned (31 downto 0);
+	signal drawMid 		: unsigned (31 downto 0);
 	signal drawEnd			: unsigned (31 downto 0);
+	signal countout      : unsigned (31 downto 0);
+	signal countout2     : unsigned (31 downto 0);
 	signal colAddrOut		: unsigned (9 downto 0);
 	signal floor_pixel	: unsigned (11 downto 0);
 	signal tmpPosX  		: unsigned (31 downto 0);
 	signal tmpPosY		   : unsigned (31 downto 0);
+	
 
 begin
 
   process (clk_sys)
   begin
-    if rising_edge(CLOCK_50) then
+    if rising_edge(clk_sys) then
       clk25 <= not clk25;
+		clk25_shift <= not clk25_shift;
     end if;
   end process;
 
@@ -239,6 +262,8 @@ begin
       counter <= counter + 1;
     end if;
   end process;
+  
+
 
   V0: entity work.sdram_pll port map (
 		inclk0 => CLOCK_50,
@@ -293,51 +318,80 @@ begin
   V2: entity work.de2_vga_raster port map (
     reset 		=> '0',
     clk 		=> clk25,
+	 bool    => boolOut,
     VGA_CLK 	=> VGA_CLK,
     VGA_HS 		=> VGA_HS,
     VGA_VS 		=> VGA_VS,
     VGA_BLANK 	=> VGA_BLANK,
+	 VGA_BLANK_SIG => VGA_BLANK_SIG,
     VGA_SYNC 	=> VGA_SYNC,
     VGA_R 		=> VGA_R,
     VGA_G 		=> VGA_G,
     VGA_B 		=> VGA_B,
-	 is_Side 	=> mem_out(63),
+	 is_Side 	=> sideOut,
 	 Row_Start 	=> unsigned(mem_out(25 downto 17)), 
+	 Row_Mid    => unsigned(mem_out(186 downto 178)),
 	 Row_End 	=> unsigned(mem_out(16 downto 8)), 
-
-	 Col_Color_sky 	=> unsigned(sky_out),    --Need to Modify
+	 Col_Color_sky => unsigned(sky_out),    --Need to Modify
 	 Col_Color 	=> tex_rom_out,
-	 Flr_Color	=> flr_rom_out,
+	 texNum     => texNumOut,
+	 texNum2    => texNum2Out,
+--	 Flr_Color	=> flr_rom_out,
 	 Cur_Row		=> Cur_Row,
 	 Cur_Col 	=> Cur_Col
   );
   
    V3: entity work.tex_gen port map (
     reset => '0',
-    clk   => clk_sys,        -- Should be 50 MHz
+    clk   => clk25_shift,        -- Should be 50 MHz
+	 --clk25 => clk25,
+	 bool => mem_out(223),
+	 boolOut => boolOut,
 	 Cur_Row		=> "00" & Cur_Row,
-	 
+	 side1 => mem_out(63),
+	 side2 => mem_out(62),
+	 texNumOut => texNumOut,
+	 texNum2Out => texNum2Out, 
+	 texNum => unsigned(mem_out(227 downto 224)),
+	 texNum2 => unsigned(mem_out(231 downto 228)),
 	 line_minus_h  => signed(mem_out(61 downto 44)),
+	 line_minus_h2  => signed(mem_out(222 downto 205)),
  	 invLineHeight => unsigned(mem_out(43 downto 26)),
+	 invLineHeight2 => unsigned(mem_out(204 downto 187)),
 	 texX				=> unsigned(mem_out(7 downto 2)),
-	 
-	 tex_pixel	=> tex_pixel
+	 texX2			=> unsigned(mem_out(177 downto 172)),
+	 tex_addr_out	=> tex_addr,
+	 sideOut   => sideOut,
+	 Row_End 	=> unsigned(mem_out(16 downto 8)), 
+	 Row_Mid    => unsigned(mem_out(186 downto 178)),
+	 floorX				=> unsigned(mem_out(81 downto 64)),
+	floorY				=> unsigned(mem_out(99 downto 82)),
+	tmpPosX				=> unsigned(mem_out(117 downto 100)),
+	tmpPosY				=> unsigned(mem_out(135 downto 118)),
+	invDistWall			=> unsigned(mem_out(147 downto 136)),
+	y						=> Cur_Row(8 downto 0)
 
   );
   
    V4: entity work.texture_rom port map (
-    clk 		=> clk_sys,
-	 tex_addr => unsigned(mem_out(1 downto 0)) & tex_pixel,
-	 flr_addr => "10" & floor_pixel,
-	 --tex_draw	=> tex_draw,
-	 tex_data => tex_rom_out,
-	 flr_data => flr_rom_out
+    --clk 		=> clk_sys,
+	 tex_addr => tex_addr,
+	 tex_data => tex_rom_out
+	
   );
   
-  V5: entity work.mem256 port map (
+  V5: entity work.memcustom port map (
 		clock			=> clk_sys,
 --		data			=> data_out,
-		data			=> x"FFFFFFFFFFFFFFFFFFFFF" & "00" & 
+		data			=> x"FFFFFF" &
+							std_logic_vector(texNum2) &
+							std_logic_vector(texNum) &
+							bool &
+							std_logic_vector(line_minus_h2(17 downto 0)) &
+							std_logic_vector(invline2(17 downto 0)) &
+							std_logic_vector(drawMid(8 downto 0)) &
+							std_logic_vector(texX2(5 downto 0)) &
+							"00" &
 							std_LOGIC_VECTOR(data_out(169 downto 160)) & 
 							x"FFF"  & 
 							STD_LOGIC_VECTOR(invdist_out(11 downto 0)) &  
@@ -345,18 +399,21 @@ begin
 							STD_LOGIC_VECTOR(tmpPosX(17 downto 0)) & 
 							STD_LOGIC_VECTOR(floorY(17 downto 0)) & 
 							STD_LOGIC_VECTOR(floorX(17 downto 0)) & 
-							isSide & "0" & 
+							isSide & isSide2 & 
 							STD_LOGIC_VECTOR(line_minus_h(17 downto 0)) & 
 							STD_LOGIC_VECTOR(invline(17 downto 0)) & 
 							STD_LOGIC_VECTOR(drawStart(8 downto 0)) & 
 							STD_LOGIC_VECTOR(drawEnd(8 downto 0)) & 
 							STD_LOGIC_VECTOR(texX(5 downto 0)) & 
-							STD_LOGIC_VECTOR(texNum(1 downto 0)),
+							"00",
 							
-		rdaddress 	=> STD_LOGIC_VECTOR(Cur_Col),
-		wraddress	=> STD_LOGIC_VECTOR(colAddrOut),
+		rdaddress 	=> Cur_Col,
+		wraddress	=> colAddrOut,
 --		wraddress	=>  data_out(255 downto 246),
 		wren	 		=> write_en,
+   	VGA_BLANK   => VGA_BLANK_SIG,
+		row_in      => cur_row,
+		row_out     => cur_row_from_mem,
 --		wren	 		=> ctrl,
 		q				=> mem_out
 	);
@@ -370,45 +427,84 @@ begin
 	);
 	
 		
-	V7: entity work.ray_FSM port map (
-				clk  			=> clk_sys,
-				control 		=> ctrl,
---				reset 		=> data_out(240),
-				posX 			=> unsigned(data_out(31 downto 0)),
-				posY 			=> unsigned(data_out(63 downto 32)),
-				countstep 	=> unsigned(data_out(95 downto 64)),
-				rayDirX 		=> signed(data_out(127 downto 96)),
-				rayDirY 		=> signed(data_out(159 downto 128)),
-				colAddrIn 	=> unsigned(data_out(255 downto 246)),
-				isSide		=> isSide,
-				texNum		=> texNum,
-				texX			=> texX,
-				floorX		=> floorX,
-				floorY		=> floorY,
-				tmpPosXout  => tmpPosX,
-				tmpPosYout  => tmpPosY,
-				countout		=> countout,
-				line_minus_h => line_minus_h,
-				invline      => invline,
-				invdist_out  => invdist_out,
-				drawStart    => drawStart,
-				drawEnd      => drawEnd,
-				colAddrOut   => colAddrOut,
-				state_out	 => state_out,
-				WE          => write_en,
-				ready 		=>	data_rdy
-	);
+--	V7: entity work.ray_FSM port map (
+--				clk  			=> clk_sys,
+--				VGA_BLANK   => VGA_BLANK_SIG,
+--				control 		=> ctrl,
+----				reset 		=> data_out(240),
+--				posX 			=> unsigned(data_out(31 downto 0)),
+--				posY 			=> unsigned(data_out(63 downto 32)),
+--				countstep 	=> unsigned(data_out(95 downto 64)),
+--				rayDirX 		=> signed(data_out(127 downto 96)),
+--				rayDirY 		=> signed(data_out(159 downto 128)),
+--				colAddrIn 	=> unsigned(data_out(255 downto 246)),
+--				isSide		=> isSide,
+--				texNum		=> texNum,
+--				texX			=> texX,
+--				floorX		=> floorX,
+--				floorY		=> floorY,
+--				tmpPosXout  => tmpPosX,
+--				tmpPosYout  => tmpPosY,
+--				countout		=> countout,
+--				line_minus_h => line_minus_h,
+--				invline      => invline,
+--				invdist_out  => invdist_out,
+--				drawStart    => drawStart,
+--				drawEnd      => drawEnd,
+--				colAddrOut   => colAddrOut,
+--				state_out	 => state_out,
+--				WE          => write_en,
+--				ready 		=>	data_rdy
+--	);
+--	
+	V8: entity work.ray_FSM port map (
+				clk           => clk_sys,
+				control       =>  ctrl,
+				VGA_BLANK     => VGA_BLANK_SIG,
+				posX 			  => unsigned(data_out(31 downto 0)),
+				posY 			  => unsigned(data_out(63 downto 32)),
+				countstep 	  => unsigned(data_out(95 downto 64)),
+				rayDirX 		  => signed(data_out(127 downto 96)),
+				rayDirY 		  => signed(data_out(159 downto 128)),
+				colAddrIn 	  => unsigned(data_out(255 downto 246)),
+				tmpPosXout    => tmpPosX,
+				tmpPosYout    => tmpPosY,
+				isSide        => isSide,
+				isSide2       => isSide2,
+				bool          => bool,
+				texNum        => texNum,
+				texNum2       => texNum2,
+				texX          => texX,
+				texX2         => texX2,
+				floorX        => floorX,
+				floorY        => floorY,
+				countout		  => countout,
+				countout2	  => countout2,
+				line_minus_h  => line_minus_h,
+				invline       => invline,
+				line_minus_h2 => line_minus_h2,
+				invline2      => invline2,
+				invdist_out   => invdist_out,
+				drawStart     => drawStart,
+				drawMid       => drawMid,
+				drawEnd       => drawEnd,
+				colAddrOut    => colAddrOut,
+				WE            => write_en,
+				ready 		  => data_rdy,
+				state_out     => state_out
+				
+);
 	
-	V8: entity work.floorMod port map (
-			clk					=> clk_sys,
-			floorX				=> unsigned(mem_out(81 downto 64)),
-			floorY				=> unsigned(mem_out(99 downto 82)),
-			tmpPosX				=> unsigned(mem_out(117 downto 100)),
-			tmpPosY				=> unsigned(mem_out(135 downto 118)),
-			invDistWall			=> unsigned(mem_out(147 downto 136)),
-			y						=> Cur_Row(8 downto 0),
-			textureIndexOut	=> floor_pixel
-	);
+--	V8: entity work.floorMod port map (
+--			clk					=> clk_sys,
+--			floorX				=> unsigned(mem_out(81 downto 64)),
+--			floorY				=> unsigned(mem_out(99 downto 82)),
+--			tmpPosX				=> unsigned(mem_out(117 downto 100)),
+--			tmpPosY				=> unsigned(mem_out(135 downto 118)),
+--			invDistWall			=> unsigned(mem_out(147 downto 136)),
+--			y						=> Cur_Row(8 downto 0),
+--			textureIndexOut	=> floor_pixel
+--	);
 
   
   HEX7     <= "0001001"; -- Leftmost
@@ -420,7 +516,7 @@ begin
   HEX1     <= (others => '1');
   HEX0     <= (others => '1');          -- Rightmost
   LEDG     <= (others => '1');
-  LEDR     <=  sram_mux & state_out & "000" & ctrl & sram_mux;
+  LEDR     <=  state_out & "000000";
   LCD_ON   <= '1';
   LCD_BLON <= '1';
   LCD_RW <= '1';
