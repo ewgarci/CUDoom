@@ -29,7 +29,7 @@ entity de2_vga_raster is
 	 
 	 is_Side 	 : in std_logic;
 --  line_height : in unsigned (8 downto 0);
-	 Col_Color 	 : in unsigned (7 downto 0);
+	 Col_Color 	 : in unsigned (23 downto 0);
 --	 Flr_Color 	 : in unsigned (7 downto 0);
 	 Col_Color_sky : in unsigned (7 downto 0);
 	 
@@ -266,7 +266,7 @@ begin
 --    end if;
 --  end process FloorVGen;
   
-  ColorGen : process(Col_Color,Col_Color_sky,col_draw_sky, col_draw, is_Side)
+  ColorGen : process(Col_Color,Col_Color_sky,col_draw_sky, col_draw, is_Side, bool, texNum, texNum2)
   variable R_temp : unsigned (9 downto 0);
   variable G_temp : unsigned (9 downto 0);
   variable B_temp : unsigned (9 downto 0);
@@ -276,17 +276,23 @@ begin
   variable B_sky : unsigned (9 downto 0);
   
   begin
-		  R_temp := Col_Color(7 downto 5) & Col_Color(7 downto 5) & Col_Color(7 downto 5) & Col_Color(7);
-        G_temp := Col_Color(4 downto 2) & Col_Color(4 downto 2) & Col_Color(4 downto 2) & Col_Color(4);
-        B_temp := Col_Color(1 downto 0) & Col_Color(1 downto 0) & Col_Color(1 downto 0) & Col_Color(1 downto 0) & Col_Color(1 downto 0);
-		  
-		  R_sky :=  Col_Color_sky(7 downto 5) & Col_Color_sky(7 downto 5) & Col_Color_sky(7 downto 5) & Col_Color_sky(7);
-        G_sky :=  Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4);
-        B_sky :=  Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0);
+--		  R_temp := Col_Color(7 downto 5) & Col_Color(7 downto 5) & Col_Color(7 downto 5) & Col_Color(7);
+--        G_temp := Col_Color(4 downto 2) & Col_Color(4 downto 2) & Col_Color(4 downto 2) & Col_Color(4);
+--        B_temp := Col_Color(1 downto 0) & Col_Color(1 downto 0) & Col_Color(1 downto 0) & Col_Color(1 downto 0) & Col_Color(1 downto 0);
+--		  
+--		  R_sky :=  Col_Color_sky(7 downto 5) & Col_Color_sky(7 downto 5) & Col_Color_sky(7 downto 5) & Col_Color_sky(7);
+--        G_sky :=  Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4);
+--        B_sky :=  Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0);
 		
-		--if (Col_Draw_sky = '1' or (bool = '1' and texNum = x"4") or (bool = '0' and texNum2 = x"4") ) then
-		if (Col_Draw_sky = '1') then			
+		 R_sky :=  "0" & Col_Color_sky(7 downto 0) & "0";
+       G_sky :=  "0" & Col_Color_sky(7 downto 0) & "0";
+		 B_sky :=   "0" & Col_Color_sky(7 downto 0) & "0" ;
 		
+		  R_temp := Col_Color(23 downto 16) & "00" ;
+        G_temp := Col_Color(15 downto 8) & "00";
+        B_temp := Col_Color(7 downto 0) & "00";
+		
+		if (Col_Draw_sky = '1' or (bool = '1' and texNum = x"4") or (bool = '0' and texNum2 = x"4") ) then
 			R <= R_sky;
 			G <= G_sky;
 			B <= B_sky;

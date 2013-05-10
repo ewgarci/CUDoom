@@ -32,34 +32,29 @@ use std.textio.all;
 entity cpu_0_test_bench is 
         port (
               -- inputs:
-                 signal A_bstatus_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_cmp_result : IN STD_LOGIC;
-                 signal A_ctrl_exception : IN STD_LOGIC;
-                 signal A_ctrl_ld_non_bypass : IN STD_LOGIC;
-                 signal A_dst_regnum : IN STD_LOGIC_VECTOR (4 DOWNTO 0);
-                 signal A_en : IN STD_LOGIC;
-                 signal A_estatus_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_ienable_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_ipending_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_iw : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_mem_byte_en : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-                 signal A_op_hbreak : IN STD_LOGIC;
-                 signal A_op_intr : IN STD_LOGIC;
-                 signal A_pcb : IN STD_LOGIC_VECTOR (24 DOWNTO 0);
-                 signal A_st_data : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_status_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_valid : IN STD_LOGIC;
-                 signal A_wr_data_unfiltered : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_wr_dst_reg : IN STD_LOGIC;
-                 signal E_add_br_to_taken_history_unfiltered : IN STD_LOGIC;
-                 signal E_logic_result : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal E_src1 : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal E_src2 : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal E_valid : IN STD_LOGIC;
-                 signal M_bht_ptr_unfiltered : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-                 signal M_bht_wr_data_unfiltered : IN STD_LOGIC_VECTOR (1 DOWNTO 0);
-                 signal M_bht_wr_en_unfiltered : IN STD_LOGIC;
+                 signal M_bstatus_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_cmp_result : IN STD_LOGIC;
+                 signal M_ctrl_exception : IN STD_LOGIC;
+                 signal M_ctrl_ld_non_io : IN STD_LOGIC;
+                 signal M_dst_regnum : IN STD_LOGIC_VECTOR (4 DOWNTO 0);
+                 signal M_en : IN STD_LOGIC;
+                 signal M_estatus_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_ienable_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_ipending_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_iw : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal M_mem_baddr : IN STD_LOGIC_VECTOR (24 DOWNTO 0);
-                 signal M_target_pcb : IN STD_LOGIC_VECTOR (24 DOWNTO 0);
+                 signal M_mem_byte_en : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+                 signal M_op_hbreak : IN STD_LOGIC;
+                 signal M_op_intr : IN STD_LOGIC;
+                 signal M_pcb : IN STD_LOGIC_VECTOR (24 DOWNTO 0);
+                 signal M_st_data : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_status_reg : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal M_valid : IN STD_LOGIC;
+                 signal M_wr_data_unfiltered : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_wr_dst_reg : IN STD_LOGIC;
                  signal W_dst_regnum : IN STD_LOGIC_VECTOR (4 DOWNTO 0);
                  signal W_iw : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal W_iw_op : IN STD_LOGIC_VECTOR (5 DOWNTO 0);
@@ -67,6 +62,7 @@ entity cpu_0_test_bench is
                  signal W_pcb : IN STD_LOGIC_VECTOR (24 DOWNTO 0);
                  signal W_valid : IN STD_LOGIC;
                  signal W_vinst : IN STD_LOGIC_VECTOR (55 DOWNTO 0);
+                 signal W_wr_data : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal W_wr_dst_reg : IN STD_LOGIC;
                  signal clk : IN STD_LOGIC;
                  signal d_address : IN STD_LOGIC_VECTOR (24 DOWNTO 0);
@@ -79,52 +75,48 @@ entity cpu_0_test_bench is
                  signal reset_n : IN STD_LOGIC;
 
               -- outputs:
-                 signal A_wr_data_filtered : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal E_add_br_to_taken_history_filtered : OUT STD_LOGIC;
                  signal E_src1_eq_src2 : OUT STD_LOGIC;
-                 signal M_bht_ptr_filtered : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
-                 signal M_bht_wr_data_filtered : OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
-                 signal M_bht_wr_en_filtered : OUT STD_LOGIC;
+                 signal M_wr_data_filtered : OUT STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal test_has_ended : OUT STD_LOGIC
               );
 end entity cpu_0_test_bench;
 
 
 architecture europa of cpu_0_test_bench is
-                signal A_mem_baddr :  STD_LOGIC_VECTOR (24 DOWNTO 0);
-                signal A_target_pcb :  STD_LOGIC_VECTOR (24 DOWNTO 0);
-                signal A_wr_data_unfiltered_0_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_10_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_11_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_12_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_13_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_14_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_15_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_16_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_17_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_18_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_19_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_1_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_20_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_21_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_22_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_23_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_24_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_25_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_26_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_27_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_28_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_29_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_2_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_30_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_31_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_3_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_4_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_5_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_6_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_7_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_8_is_x :  STD_LOGIC;
-                signal A_wr_data_unfiltered_9_is_x :  STD_LOGIC;
+                signal E_src1_src2_fast_cmp :  STD_LOGIC_VECTOR (32 DOWNTO 0);
+                signal M_target_pcb :  STD_LOGIC_VECTOR (24 DOWNTO 0);
+                signal M_wr_data_unfiltered_0_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_10_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_11_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_12_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_13_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_14_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_15_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_16_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_17_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_18_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_19_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_1_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_20_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_21_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_22_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_23_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_24_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_25_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_26_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_27_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_28_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_29_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_2_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_30_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_31_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_3_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_4_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_5_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_6_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_7_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_8_is_x :  STD_LOGIC;
+                signal M_wr_data_unfiltered_9_is_x :  STD_LOGIC;
                 signal W_op_add :  STD_LOGIC;
                 signal W_op_addi :  STD_LOGIC;
                 signal W_op_and :  STD_LOGIC;
@@ -253,7 +245,7 @@ architecture europa of cpu_0_test_bench is
                 signal W_op_xor :  STD_LOGIC;
                 signal W_op_xorhi :  STD_LOGIC;
                 signal W_op_xori :  STD_LOGIC;
-                signal internal_A_wr_data_filtered :  STD_LOGIC_VECTOR (31 DOWNTO 0);
+                signal internal_M_wr_data_filtered :  STD_LOGIC_VECTOR (31 DOWNTO 0);
                 signal internal_test_has_ended :  STD_LOGIC;
   file trace_handle : TEXT ;
 
@@ -391,107 +383,88 @@ begin
   process (clk, reset_n)
   begin
     if reset_n = '0' then
-      A_target_pcb <= std_logic_vector'("0000000000000000000000000");
+      M_target_pcb <= std_logic_vector'("0000000000000000000000000");
     elsif clk'event and clk = '1' then
-      if std_logic'(A_en) = '1' then 
-        A_target_pcb <= M_target_pcb;
+      if std_logic'(M_en) = '1' then 
+        M_target_pcb <= E_src1(24 DOWNTO 0);
       end if;
     end if;
 
   end process;
 
-  process (clk, reset_n)
-  begin
-    if reset_n = '0' then
-      A_mem_baddr <= std_logic_vector'("0000000000000000000000000");
-    elsif clk'event and clk = '1' then
-      if std_logic'(A_en) = '1' then 
-        A_mem_baddr <= M_mem_baddr;
-      end if;
-    end if;
-
-  end process;
-
-  E_src1_eq_src2 <= to_std_logic((E_logic_result = std_logic_vector'("00000000000000000000000000000000")));
-  --Propagating 'X' data bits
-  E_add_br_to_taken_history_filtered <= E_add_br_to_taken_history_unfiltered;
-  --Propagating 'X' data bits
-  M_bht_wr_en_filtered <= M_bht_wr_en_unfiltered;
-  --Propagating 'X' data bits
-  M_bht_wr_data_filtered <= M_bht_wr_data_unfiltered;
-  --Propagating 'X' data bits
-  M_bht_ptr_filtered <= M_bht_ptr_unfiltered;
+  E_src1_src2_fast_cmp <= A_EXT (((std_logic_vector'("0") & (Std_Logic_Vector'(A_ToStdLogicVector(std_logic'('0')) & (E_src1 XOR E_src2)))) - std_logic_vector'("0000000000000000000000000000000001")), 33);
+  E_src1_eq_src2 <= E_src1_src2_fast_cmp(32);
   internal_test_has_ended <= std_logic'('0');
   --vhdl renameroo for output signals
-  A_wr_data_filtered <= internal_A_wr_data_filtered;
+  M_wr_data_filtered <= internal_M_wr_data_filtered;
   --vhdl renameroo for output signals
   test_has_ended <= internal_test_has_ended;
 --synthesis translate_off
     --Clearing 'X' data bits
-    A_wr_data_unfiltered_0_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(0))), '1','0');
-    internal_A_wr_data_filtered(0) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_0_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(0));
-    A_wr_data_unfiltered_1_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(1))), '1','0');
-    internal_A_wr_data_filtered(1) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_1_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(1));
-    A_wr_data_unfiltered_2_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(2))), '1','0');
-    internal_A_wr_data_filtered(2) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_2_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(2));
-    A_wr_data_unfiltered_3_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(3))), '1','0');
-    internal_A_wr_data_filtered(3) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_3_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(3));
-    A_wr_data_unfiltered_4_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(4))), '1','0');
-    internal_A_wr_data_filtered(4) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_4_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(4));
-    A_wr_data_unfiltered_5_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(5))), '1','0');
-    internal_A_wr_data_filtered(5) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_5_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(5));
-    A_wr_data_unfiltered_6_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(6))), '1','0');
-    internal_A_wr_data_filtered(6) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_6_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(6));
-    A_wr_data_unfiltered_7_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(7))), '1','0');
-    internal_A_wr_data_filtered(7) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_7_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(7));
-    A_wr_data_unfiltered_8_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(8))), '1','0');
-    internal_A_wr_data_filtered(8) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_8_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(8));
-    A_wr_data_unfiltered_9_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(9))), '1','0');
-    internal_A_wr_data_filtered(9) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_9_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(9));
-    A_wr_data_unfiltered_10_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(10))), '1','0');
-    internal_A_wr_data_filtered(10) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_10_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(10));
-    A_wr_data_unfiltered_11_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(11))), '1','0');
-    internal_A_wr_data_filtered(11) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_11_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(11));
-    A_wr_data_unfiltered_12_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(12))), '1','0');
-    internal_A_wr_data_filtered(12) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_12_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(12));
-    A_wr_data_unfiltered_13_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(13))), '1','0');
-    internal_A_wr_data_filtered(13) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_13_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(13));
-    A_wr_data_unfiltered_14_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(14))), '1','0');
-    internal_A_wr_data_filtered(14) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_14_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(14));
-    A_wr_data_unfiltered_15_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(15))), '1','0');
-    internal_A_wr_data_filtered(15) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_15_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(15));
-    A_wr_data_unfiltered_16_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(16))), '1','0');
-    internal_A_wr_data_filtered(16) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_16_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(16));
-    A_wr_data_unfiltered_17_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(17))), '1','0');
-    internal_A_wr_data_filtered(17) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_17_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(17));
-    A_wr_data_unfiltered_18_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(18))), '1','0');
-    internal_A_wr_data_filtered(18) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_18_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(18));
-    A_wr_data_unfiltered_19_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(19))), '1','0');
-    internal_A_wr_data_filtered(19) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_19_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(19));
-    A_wr_data_unfiltered_20_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(20))), '1','0');
-    internal_A_wr_data_filtered(20) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_20_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(20));
-    A_wr_data_unfiltered_21_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(21))), '1','0');
-    internal_A_wr_data_filtered(21) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_21_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(21));
-    A_wr_data_unfiltered_22_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(22))), '1','0');
-    internal_A_wr_data_filtered(22) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_22_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(22));
-    A_wr_data_unfiltered_23_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(23))), '1','0');
-    internal_A_wr_data_filtered(23) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_23_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(23));
-    A_wr_data_unfiltered_24_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(24))), '1','0');
-    internal_A_wr_data_filtered(24) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_24_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(24));
-    A_wr_data_unfiltered_25_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(25))), '1','0');
-    internal_A_wr_data_filtered(25) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_25_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(25));
-    A_wr_data_unfiltered_26_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(26))), '1','0');
-    internal_A_wr_data_filtered(26) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_26_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(26));
-    A_wr_data_unfiltered_27_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(27))), '1','0');
-    internal_A_wr_data_filtered(27) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_27_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(27));
-    A_wr_data_unfiltered_28_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(28))), '1','0');
-    internal_A_wr_data_filtered(28) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_28_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(28));
-    A_wr_data_unfiltered_29_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(29))), '1','0');
-    internal_A_wr_data_filtered(29) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_29_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(29));
-    A_wr_data_unfiltered_30_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(30))), '1','0');
-    internal_A_wr_data_filtered(30) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_30_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(30));
-    A_wr_data_unfiltered_31_is_x <= A_WE_StdLogic(is_x(std_ulogic(A_wr_data_unfiltered(31))), '1','0');
-    internal_A_wr_data_filtered(31) <= A_WE_StdLogic((std_logic'(((A_wr_data_unfiltered_31_is_x AND (A_ctrl_ld_non_bypass)))) = '1'), std_logic'('0'), A_wr_data_unfiltered(31));
+    M_wr_data_unfiltered_0_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(0))), '1','0');
+    internal_M_wr_data_filtered(0) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_0_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(0));
+    M_wr_data_unfiltered_1_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(1))), '1','0');
+    internal_M_wr_data_filtered(1) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_1_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(1));
+    M_wr_data_unfiltered_2_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(2))), '1','0');
+    internal_M_wr_data_filtered(2) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_2_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(2));
+    M_wr_data_unfiltered_3_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(3))), '1','0');
+    internal_M_wr_data_filtered(3) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_3_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(3));
+    M_wr_data_unfiltered_4_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(4))), '1','0');
+    internal_M_wr_data_filtered(4) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_4_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(4));
+    M_wr_data_unfiltered_5_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(5))), '1','0');
+    internal_M_wr_data_filtered(5) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_5_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(5));
+    M_wr_data_unfiltered_6_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(6))), '1','0');
+    internal_M_wr_data_filtered(6) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_6_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(6));
+    M_wr_data_unfiltered_7_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(7))), '1','0');
+    internal_M_wr_data_filtered(7) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_7_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(7));
+    M_wr_data_unfiltered_8_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(8))), '1','0');
+    internal_M_wr_data_filtered(8) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_8_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(8));
+    M_wr_data_unfiltered_9_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(9))), '1','0');
+    internal_M_wr_data_filtered(9) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_9_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(9));
+    M_wr_data_unfiltered_10_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(10))), '1','0');
+    internal_M_wr_data_filtered(10) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_10_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(10));
+    M_wr_data_unfiltered_11_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(11))), '1','0');
+    internal_M_wr_data_filtered(11) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_11_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(11));
+    M_wr_data_unfiltered_12_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(12))), '1','0');
+    internal_M_wr_data_filtered(12) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_12_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(12));
+    M_wr_data_unfiltered_13_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(13))), '1','0');
+    internal_M_wr_data_filtered(13) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_13_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(13));
+    M_wr_data_unfiltered_14_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(14))), '1','0');
+    internal_M_wr_data_filtered(14) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_14_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(14));
+    M_wr_data_unfiltered_15_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(15))), '1','0');
+    internal_M_wr_data_filtered(15) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_15_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(15));
+    M_wr_data_unfiltered_16_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(16))), '1','0');
+    internal_M_wr_data_filtered(16) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_16_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(16));
+    M_wr_data_unfiltered_17_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(17))), '1','0');
+    internal_M_wr_data_filtered(17) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_17_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(17));
+    M_wr_data_unfiltered_18_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(18))), '1','0');
+    internal_M_wr_data_filtered(18) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_18_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(18));
+    M_wr_data_unfiltered_19_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(19))), '1','0');
+    internal_M_wr_data_filtered(19) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_19_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(19));
+    M_wr_data_unfiltered_20_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(20))), '1','0');
+    internal_M_wr_data_filtered(20) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_20_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(20));
+    M_wr_data_unfiltered_21_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(21))), '1','0');
+    internal_M_wr_data_filtered(21) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_21_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(21));
+    M_wr_data_unfiltered_22_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(22))), '1','0');
+    internal_M_wr_data_filtered(22) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_22_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(22));
+    M_wr_data_unfiltered_23_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(23))), '1','0');
+    internal_M_wr_data_filtered(23) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_23_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(23));
+    M_wr_data_unfiltered_24_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(24))), '1','0');
+    internal_M_wr_data_filtered(24) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_24_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(24));
+    M_wr_data_unfiltered_25_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(25))), '1','0');
+    internal_M_wr_data_filtered(25) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_25_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(25));
+    M_wr_data_unfiltered_26_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(26))), '1','0');
+    internal_M_wr_data_filtered(26) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_26_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(26));
+    M_wr_data_unfiltered_27_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(27))), '1','0');
+    internal_M_wr_data_filtered(27) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_27_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(27));
+    M_wr_data_unfiltered_28_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(28))), '1','0');
+    internal_M_wr_data_filtered(28) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_28_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(28));
+    M_wr_data_unfiltered_29_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(29))), '1','0');
+    internal_M_wr_data_filtered(29) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_29_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(29));
+    M_wr_data_unfiltered_30_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(30))), '1','0');
+    internal_M_wr_data_filtered(30) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_30_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(30));
+    M_wr_data_unfiltered_31_is_x <= A_WE_StdLogic(is_x(std_ulogic(M_wr_data_unfiltered(31))), '1','0');
+    internal_M_wr_data_filtered(31) <= A_WE_StdLogic((std_logic'(((M_wr_data_unfiltered_31_is_x AND (M_ctrl_ld_non_io)))) = '1'), std_logic'('0'), M_wr_data_unfiltered(31));
     process (clk)
     VARIABLE write_line : line;
     begin
@@ -529,15 +502,16 @@ begin
 
     end process;
 
-    process (clk)
+    process (clk, reset_n)
     VARIABLE write_line2 : line;
     begin
-      if clk'event and clk = '1' then
-        if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(W_valid)) then 
+      if reset_n = '0' then
+      elsif clk'event and clk = '1' then
+        if std_logic'(W_wr_dst_reg) = '1' then 
+          if is_x(W_wr_data) then 
             write(write_line2, now);
             write(write_line2, string'(": "));
-            write(write_line2, string'("ERROR: cpu_0_test_bench/W_valid is 'x'"));
+            write(write_line2, string'("ERROR: cpu_0_test_bench/W_wr_data is 'x'"));
             write(output, write_line2.all & CR);
             deallocate (write_line2);
             assert false report "VHDL STOP" severity failure;
@@ -547,16 +521,15 @@ begin
 
     end process;
 
-    process (clk, reset_n)
+    process (clk)
     VARIABLE write_line3 : line;
     begin
-      if reset_n = '0' then
-      elsif clk'event and clk = '1' then
-        if std_logic'(W_valid) = '1' then 
-          if is_x(W_pcb) then 
+      if clk'event and clk = '1' then
+        if std_logic'(reset_n) = '1' then 
+          if is_x(std_ulogic(W_valid)) then 
             write(write_line3, now);
             write(write_line3, string'(": "));
-            write(write_line3, string'("ERROR: cpu_0_test_bench/W_pcb is 'x'"));
+            write(write_line3, string'("ERROR: cpu_0_test_bench/W_valid is 'x'"));
             write(output, write_line3.all & CR);
             deallocate (write_line3);
             assert false report "VHDL STOP" severity failure;
@@ -572,10 +545,10 @@ begin
       if reset_n = '0' then
       elsif clk'event and clk = '1' then
         if std_logic'(W_valid) = '1' then 
-          if is_x(W_iw) then 
+          if is_x(W_pcb) then 
             write(write_line4, now);
             write(write_line4, string'(": "));
-            write(write_line4, string'("ERROR: cpu_0_test_bench/W_iw is 'x'"));
+            write(write_line4, string'("ERROR: cpu_0_test_bench/W_pcb is 'x'"));
             write(output, write_line4.all & CR);
             deallocate (write_line4);
             assert false report "VHDL STOP" severity failure;
@@ -585,15 +558,16 @@ begin
 
     end process;
 
-    process (clk)
+    process (clk, reset_n)
     VARIABLE write_line5 : line;
     begin
-      if clk'event and clk = '1' then
-        if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(A_en)) then 
+      if reset_n = '0' then
+      elsif clk'event and clk = '1' then
+        if std_logic'(W_valid) = '1' then 
+          if is_x(W_iw) then 
             write(write_line5, now);
             write(write_line5, string'(": "));
-            write(write_line5, string'("ERROR: cpu_0_test_bench/A_en is 'x'"));
+            write(write_line5, string'("ERROR: cpu_0_test_bench/W_iw is 'x'"));
             write(output, write_line5.all & CR);
             deallocate (write_line5);
             assert false report "VHDL STOP" severity failure;
@@ -608,10 +582,10 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(E_valid)) then 
+          if is_x(std_ulogic(M_en)) then 
             write(write_line6, now);
             write(write_line6, string'(": "));
-            write(write_line6, string'("ERROR: cpu_0_test_bench/E_valid is 'x'"));
+            write(write_line6, string'("ERROR: cpu_0_test_bench/M_en is 'x'"));
             write(output, write_line6.all & CR);
             deallocate (write_line6);
             assert false report "VHDL STOP" severity failure;
@@ -626,10 +600,10 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(M_valid)) then 
+          if is_x(std_ulogic(E_valid)) then 
             write(write_line7, now);
             write(write_line7, string'(": "));
-            write(write_line7, string'("ERROR: cpu_0_test_bench/M_valid is 'x'"));
+            write(write_line7, string'("ERROR: cpu_0_test_bench/E_valid is 'x'"));
             write(output, write_line7.all & CR);
             deallocate (write_line7);
             assert false report "VHDL STOP" severity failure;
@@ -644,10 +618,10 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(A_valid)) then 
+          if is_x(std_ulogic(M_valid)) then 
             write(write_line8, now);
             write(write_line8, string'(": "));
-            write(write_line8, string'("ERROR: cpu_0_test_bench/A_valid is 'x'"));
+            write(write_line8, string'("ERROR: cpu_0_test_bench/M_valid is 'x'"));
             write(output, write_line8.all & CR);
             deallocate (write_line8);
             assert false report "VHDL STOP" severity failure;
@@ -662,11 +636,11 @@ begin
     begin
       if reset_n = '0' then
       elsif clk'event and clk = '1' then
-        if std_logic'(((A_valid AND A_en) AND A_wr_dst_reg)) = '1' then 
-          if is_x(A_wr_data_unfiltered) then 
+        if std_logic'(((M_valid AND M_en) AND M_wr_dst_reg)) = '1' then 
+          if is_x(M_wr_data_unfiltered) then 
             write(write_line9, now);
             write(write_line9, string'(": "));
-            write(write_line9, string'("WARNING: cpu_0_test_bench/A_wr_data_unfiltered is 'x'"));
+            write(write_line9, string'("WARNING: cpu_0_test_bench/M_wr_data_unfiltered is 'x'"));
             write(output, write_line9.all & CR);
             deallocate (write_line9);
           end if;
@@ -680,10 +654,10 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(A_status_reg) then 
+          if is_x(std_ulogic(i_read)) then 
             write(write_line10, now);
             write(write_line10, string'(": "));
-            write(write_line10, string'("ERROR: cpu_0_test_bench/A_status_reg is 'x'"));
+            write(write_line10, string'("ERROR: cpu_0_test_bench/i_read is 'x'"));
             write(output, write_line10.all & CR);
             deallocate (write_line10);
             assert false report "VHDL STOP" severity failure;
@@ -693,15 +667,16 @@ begin
 
     end process;
 
-    process (clk)
+    process (clk, reset_n)
     VARIABLE write_line11 : line;
     begin
-      if clk'event and clk = '1' then
-        if std_logic'(reset_n) = '1' then 
-          if is_x(A_estatus_reg) then 
+      if reset_n = '0' then
+      elsif clk'event and clk = '1' then
+        if std_logic'(i_read) = '1' then 
+          if is_x(i_address) then 
             write(write_line11, now);
             write(write_line11, string'(": "));
-            write(write_line11, string'("ERROR: cpu_0_test_bench/A_estatus_reg is 'x'"));
+            write(write_line11, string'("ERROR: cpu_0_test_bench/i_address is 'x'"));
             write(output, write_line11.all & CR);
             deallocate (write_line11);
             assert false report "VHDL STOP" severity failure;
@@ -716,10 +691,10 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(A_bstatus_reg) then 
+          if is_x(std_ulogic(i_readdatavalid)) then 
             write(write_line12, now);
             write(write_line12, string'(": "));
-            write(write_line12, string'("ERROR: cpu_0_test_bench/A_bstatus_reg is 'x'"));
+            write(write_line12, string'("ERROR: cpu_0_test_bench/i_readdatavalid is 'x'"));
             write(output, write_line12.all & CR);
             deallocate (write_line12);
             assert false report "VHDL STOP" severity failure;
@@ -734,10 +709,10 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(i_read)) then 
+          if is_x(std_ulogic(d_write)) then 
             write(write_line13, now);
             write(write_line13, string'(": "));
-            write(write_line13, string'("ERROR: cpu_0_test_bench/i_read is 'x'"));
+            write(write_line13, string'("ERROR: cpu_0_test_bench/d_write is 'x'"));
             write(output, write_line13.all & CR);
             deallocate (write_line13);
             assert false report "VHDL STOP" severity failure;
@@ -752,11 +727,11 @@ begin
     begin
       if reset_n = '0' then
       elsif clk'event and clk = '1' then
-        if std_logic'(i_read) = '1' then 
-          if is_x(i_address) then 
+        if std_logic'(d_write) = '1' then 
+          if is_x(d_byteenable) then 
             write(write_line14, now);
             write(write_line14, string'(": "));
-            write(write_line14, string'("ERROR: cpu_0_test_bench/i_address is 'x'"));
+            write(write_line14, string'("ERROR: cpu_0_test_bench/d_byteenable is 'x'"));
             write(output, write_line14.all & CR);
             deallocate (write_line14);
             assert false report "VHDL STOP" severity failure;
@@ -766,15 +741,16 @@ begin
 
     end process;
 
-    process (clk)
+    process (clk, reset_n)
     VARIABLE write_line15 : line;
     begin
-      if clk'event and clk = '1' then
-        if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(i_readdatavalid)) then 
+      if reset_n = '0' then
+      elsif clk'event and clk = '1' then
+        if std_logic'((d_write OR d_read)) = '1' then 
+          if is_x(d_address) then 
             write(write_line15, now);
             write(write_line15, string'(": "));
-            write(write_line15, string'("ERROR: cpu_0_test_bench/i_readdatavalid is 'x'"));
+            write(write_line15, string'("ERROR: cpu_0_test_bench/d_address is 'x'"));
             write(output, write_line15.all & CR);
             deallocate (write_line15);
             assert false report "VHDL STOP" severity failure;
@@ -789,68 +765,12 @@ begin
     begin
       if clk'event and clk = '1' then
         if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(d_write)) then 
+          if is_x(std_ulogic(d_read)) then 
             write(write_line16, now);
             write(write_line16, string'(": "));
-            write(write_line16, string'("ERROR: cpu_0_test_bench/d_write is 'x'"));
+            write(write_line16, string'("ERROR: cpu_0_test_bench/d_read is 'x'"));
             write(output, write_line16.all & CR);
             deallocate (write_line16);
-            assert false report "VHDL STOP" severity failure;
-          end if;
-        end if;
-      end if;
-
-    end process;
-
-    process (clk, reset_n)
-    VARIABLE write_line17 : line;
-    begin
-      if reset_n = '0' then
-      elsif clk'event and clk = '1' then
-        if std_logic'(d_write) = '1' then 
-          if is_x(d_byteenable) then 
-            write(write_line17, now);
-            write(write_line17, string'(": "));
-            write(write_line17, string'("ERROR: cpu_0_test_bench/d_byteenable is 'x'"));
-            write(output, write_line17.all & CR);
-            deallocate (write_line17);
-            assert false report "VHDL STOP" severity failure;
-          end if;
-        end if;
-      end if;
-
-    end process;
-
-    process (clk, reset_n)
-    VARIABLE write_line18 : line;
-    begin
-      if reset_n = '0' then
-      elsif clk'event and clk = '1' then
-        if std_logic'((d_write OR d_read)) = '1' then 
-          if is_x(d_address) then 
-            write(write_line18, now);
-            write(write_line18, string'(": "));
-            write(write_line18, string'("ERROR: cpu_0_test_bench/d_address is 'x'"));
-            write(output, write_line18.all & CR);
-            deallocate (write_line18);
-            assert false report "VHDL STOP" severity failure;
-          end if;
-        end if;
-      end if;
-
-    end process;
-
-    process (clk)
-    VARIABLE write_line19 : line;
-    begin
-      if clk'event and clk = '1' then
-        if std_logic'(reset_n) = '1' then 
-          if is_x(std_ulogic(d_read)) then 
-            write(write_line19, now);
-            write(write_line19, string'(": "));
-            write(write_line19, string'("ERROR: cpu_0_test_bench/d_read is 'x'"));
-            write(output, write_line19.all & CR);
-            deallocate (write_line19);
             assert false report "VHDL STOP" severity failure;
           end if;
         end if;
@@ -861,101 +781,101 @@ begin
     
     process is
       variable status : file_open_status; -- status for fopen
-    VARIABLE write_line20 : line;
-    VARIABLE write_line21 : line;
+    VARIABLE write_line17 : line;
+    VARIABLE write_line18 : line;
     
     begin  -- process
       file_open(status, trace_handle, "cpu_0.tr", WRITE_MODE);
-      write(write_line20, string'("version 3"));
-    write(trace_handle, write_line20.all & LF);
-    deallocate (write_line20);
-    write(write_line21, string'("numThreads 1"));
-    write(trace_handle, write_line21.all & LF);
-    deallocate (write_line21);
+      write(write_line17, string'("version 3"));
+    write(trace_handle, write_line17.all & LF);
+    deallocate (write_line17);
+    write(write_line18, string'("numThreads 1"));
+    write(trace_handle, write_line18.all & LF);
+    deallocate (write_line18);
     
       wait;                               -- wait forever
     end process;
     process (clk)
-    VARIABLE write_line22 : line;
+    VARIABLE write_line19 : line;
     begin
       if clk'event and clk = '1' then
-        if std_logic'((((NOT reset_n OR ((A_valid AND A_en)))) AND NOT internal_test_has_ended)) = '1' then 
-          write(write_line22, now);
-          write(write_line22, string'(": "));
-          write(write_line22, to_hex_string(NOT reset_n, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_pcb, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_op_intr, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_op_hbreak, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_iw, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(NOT ((A_op_intr OR A_op_hbreak)), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_wr_dst_reg, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_dst_regnum, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(internal_A_wr_data_filtered, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_mem_baddr, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_st_data, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_mem_byte_en, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_cmp_result, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_target_pcb, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_status_reg, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_estatus_reg, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_bstatus_reg, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_ienable_reg, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_ipending_reg, pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(A_WE_StdLogicVector((std_logic'(A_ctrl_exception) = '1'), std_logic_vector'("00000000000000000000000000000001"), std_logic_vector'("00000000000000000000000000000000")), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(","));
-          write(write_line22, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
-          write(write_line22, string'(""));
-          write(trace_handle, write_line22.all & LF);
-          deallocate (write_line22);
+        if std_logic'((((NOT reset_n OR ((M_valid AND M_en)))) AND NOT internal_test_has_ended)) = '1' then 
+          write(write_line19, now);
+          write(write_line19, string'(": "));
+          write(write_line19, to_hex_string(NOT reset_n, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_pcb, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_op_intr, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_op_hbreak, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_iw, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(NOT ((M_op_intr OR M_op_hbreak)), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_wr_dst_reg, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_dst_regnum, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(internal_M_wr_data_filtered, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_mem_baddr, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_st_data, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_mem_byte_en, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_cmp_result, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_target_pcb, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_status_reg, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_estatus_reg, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_bstatus_reg, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_ienable_reg, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_ipending_reg, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(M_ctrl_exception, pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(","));
+          write(write_line19, to_hex_string(std_logic_vector'("00000000000000000000000000000000"), pad_none));
+          write(write_line19, string'(""));
+          write(trace_handle, write_line19.all & LF);
+          deallocate (write_line19);
         end if;
       end if;
 
@@ -964,7 +884,7 @@ begin
 --synthesis translate_on
 --synthesis read_comments_as_HDL on
 --    
---    internal_A_wr_data_filtered <= A_wr_data_unfiltered;
+--    internal_M_wr_data_filtered <= M_wr_data_unfiltered;
 --synthesis read_comments_as_HDL off
 
 end europa;

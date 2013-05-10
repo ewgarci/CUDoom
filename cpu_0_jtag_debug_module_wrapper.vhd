@@ -307,7 +307,7 @@ begin
 --    cpu_0_jtag_debug_module_phy : sld_virtual_jtag_basic
 --      generic map(
 --        sld_auto_instance_index => "YES",
---        sld_instance_index => 1,
+--        sld_instance_index => 0,
 --        sld_ir_width => 2,
 --        sld_mfg_id => 70,
 --        sld_sim_action => "",

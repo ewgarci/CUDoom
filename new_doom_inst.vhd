@@ -23,8 +23,8 @@
       zs_we_n_from_the_sdram_0 => zs_we_n_from_the_sdram_0,
       Cur_Row_in_to_the_skygen_0 => Cur_Row_in_to_the_skygen_0,
       FB_angle_in_to_the_skygen_0 => FB_angle_in_to_the_skygen_0,
-      PS2_Clk_to_the_de2_ps2_0 => PS2_Clk_to_the_de2_ps2_0,
-      PS2_Data_to_the_de2_ps2_0 => PS2_Data_to_the_de2_ps2_0,
+      PS2_Clk_to_the_de2_ps2_1 => PS2_Clk_to_the_de2_ps2_1,
+      PS2_Data_to_the_de2_ps2_1 => PS2_Data_to_the_de2_ps2_1,
       clk_0 => clk_0,
       hardware_data_to_the_niosInterface_1_0 => hardware_data_to_the_niosInterface_1_0,
       reset_n => reset_n

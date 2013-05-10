@@ -20,15 +20,15 @@
 (port
 (pt 0 80)
 (input)
-(text "PS2_Clk_to_the_de2_ps2_0 " (rect 0 0 141 16)(font "Arial" (font_size 8)))
-(text "PS2_Clk_to_the_de2_ps2_0 " (rect 20 73 161 89)(font "Arial" (font_size 8)))
+(text "PS2_Clk_to_the_de2_ps2_1 " (rect 0 0 141 16)(font "Arial" (font_size 8)))
+(text "PS2_Clk_to_the_de2_ps2_1 " (rect 20 73 161 89)(font "Arial" (font_size 8)))
 (line (pt 0 80)(pt 16 80)(line_width 1))
 )
 (port
 (pt 0 96)
 (input)
-(text "PS2_Data_to_the_de2_ps2_0 " (rect 0 0 148 16)(font "Arial" (font_size 8)))
-(text "PS2_Data_to_the_de2_ps2_0 " (rect 20 89 168 105)(font "Arial" (font_size 8)))
+(text "PS2_Data_to_the_de2_ps2_1 " (rect 0 0 148 16)(font "Arial" (font_size 8)))
+(text "PS2_Data_to_the_de2_ps2_1 " (rect 20 89 168 105)(font "Arial" (font_size 8)))
 (line (pt 0 96)(pt 16 96)(line_width 1))
 )
 (port

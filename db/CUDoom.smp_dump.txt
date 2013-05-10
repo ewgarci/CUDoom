@@ -1,17 +1,18 @@
 
 State Machine - |top|ray_FSM:V8|state
-Name state.K state.J state.I state.H state.G state.F state.E state.D state.C state.B state.A 
-state.A 0 0 0 0 0 0 0 0 0 0 0 
-state.B 0 0 0 0 0 0 0 0 0 1 1 
-state.C 0 0 0 0 0 0 0 0 1 0 1 
-state.D 0 0 0 0 0 0 0 1 0 0 1 
-state.E 0 0 0 0 0 0 1 0 0 0 1 
-state.F 0 0 0 0 0 1 0 0 0 0 1 
-state.G 0 0 0 0 1 0 0 0 0 0 1 
-state.H 0 0 0 1 0 0 0 0 0 0 1 
-state.I 0 0 1 0 0 0 0 0 0 0 1 
-state.J 0 1 0 0 0 0 0 0 0 0 1 
-state.K 1 0 0 0 0 0 0 0 0 0 1 
+Name state.L state.K state.J state.I state.H state.G state.F state.E state.D state.C state.B state.A 
+state.A 0 0 0 0 0 0 0 0 0 0 0 0 
+state.B 0 0 0 0 0 0 0 0 0 0 1 1 
+state.C 0 0 0 0 0 0 0 0 0 1 0 1 
+state.D 0 0 0 0 0 0 0 0 1 0 0 1 
+state.E 0 0 0 0 0 0 0 1 0 0 0 1 
+state.F 0 0 0 0 0 0 1 0 0 0 0 1 
+state.G 0 0 0 0 0 1 0 0 0 0 0 1 
+state.H 0 0 0 0 1 0 0 0 0 0 0 1 
+state.I 0 0 0 1 0 0 0 0 0 0 0 1 
+state.J 0 0 1 0 0 0 0 0 0 0 0 1 
+state.K 0 1 0 0 0 0 0 0 0 0 0 1 
+state.L 1 0 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |top|framerate_calc:V6|state
 Name state.C state.B2 state.B state.A 
@@ -19,3 +20,12 @@ state.A 0 0 0 0
 state.B 0 0 1 1 
 state.B2 0 1 0 1 
 state.C 1 0 0 1 
+
+State Machine - |top|memcustom:V5|read_code
+Name read_code.F read_code.E read_code.D read_code.C read_code.B read_code.A 
+read_code.A 0 0 0 0 0 0 
+read_code.B 0 0 0 0 1 1 
+read_code.C 0 0 0 1 0 1 
+read_code.D 0 0 1 0 0 1 
+read_code.E 0 1 0 0 0 1 
+read_code.F 1 0 0 0 0 1 

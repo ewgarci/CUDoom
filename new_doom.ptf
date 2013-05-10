@@ -295,7 +295,7 @@ SYSTEM new_doom
             Uses_Tri_State_Data_Bus = "0";
             Has_IRQ = "0";
             JTAG_Hub_Base_Id = "1118278";
-            JTAG_Hub_Instance_Id = "1";
+            JTAG_Hub_Instance_Id = "0";
             Address_Group = "0";
             IRQ_MASTER cpu_0/data_master
             {
@@ -399,7 +399,7 @@ SYSTEM new_doom
             Data_Width = "32";
             Address_Width = "25";
             Maximum_Burst_Size = "1";
-            Register_Incoming_Signals = "0";
+            Register_Incoming_Signals = "1";
             Register_Outgoing_Signals = "0";
             Interleave_Bursts = "0";
             Linewrap_Bursts = "0";
@@ -455,7 +455,7 @@ SYSTEM new_doom
                type = "readdatavalid";
                width = "1";
                direction = "input";
-               Is_Enabled = "1";
+               Is_Enabled = "0";
             }
             PORT d_waitrequest
             {
@@ -518,9 +518,9 @@ SYSTEM new_doom
                span = "0x00080000";
                is_bridge = "0";
             }
-            Entry de2_ps2_0/avalon_slave_0
+            Entry de2_ps2_1/avalon_slave_0
             {
-               address = "0x01081088";
+               address = "0x00000000";
                span = "0x00000002";
                is_bridge = "0";
             }
@@ -528,9 +528,9 @@ SYSTEM new_doom
       }
       WIZARD_SCRIPT_ARGUMENTS 
       {
-         cache_has_dcache = "1";
-         cache_dcache_size = "2048";
-         cache_dcache_line_size = "32";
+         cache_has_dcache = "0";
+         cache_dcache_size = "0";
+         cache_dcache_line_size = "0";
          cache_dcache_bursts = "0";
          cache_dcache_ram_block_type = "AUTO";
          num_tightly_coupled_data_masters = "0";
@@ -538,7 +538,7 @@ SYSTEM new_doom
          gui_include_tightly_coupled_data_masters = "0";
          gui_omit_avalon_data_master = "0";
          cache_has_icache = "1";
-         cache_icache_size = "4096";
+         cache_icache_size = "512";
          cache_icache_line_size = "32";
          cache_icache_ram_block_type = "AUTO";
          cache_icache_bursts = "0";
@@ -577,7 +577,7 @@ SYSTEM new_doom
          hbreak_test = "0";
          allow_full_address_range = "0";
          extra_exc_info = "0";
-         branch_prediction_type = "Dynamic";
+         branch_prediction_type = "Static";
          bht_ptr_sz = "8";
          bht_index_pc_only = "0";
          gui_branch_prediction_type = "Automatic";
@@ -607,8 +607,8 @@ SYSTEM new_doom
          mpu_min_data_region_size_log2 = "12";
          mpu_min_inst_region_size_log2 = "12";
          mpu_use_limit = "0";
-         hardware_divide_present = "1";
-         gui_hardware_divide_setting = "1";
+         hardware_divide_present = "0";
+         gui_hardware_divide_setting = "0";
          hardware_multiply_present = "1";
          hardware_multiply_impl = "embedded_mul";
          shift_rot_impl = "fast_le_shift";
@@ -620,8 +620,8 @@ SYSTEM new_doom
          break_offset = "0x00000020";
          exc_offset = "0x00000020";
          cpu_reset = "0";
-         CPU_Implementation = "fast";
-         cpu_selection = "f";
+         CPU_Implementation = "small";
+         cpu_selection = "s";
          device_family_id = "CYCLONEII";
          address_stall_present = "1";
          dsp_block_supports_shift = "0";
@@ -696,7 +696,7 @@ SYSTEM new_doom
             }
             CONSTANT nasys_icache_size
             {
-               value = "4096";
+               value = "512";
                comment = "Size in bytes of instruction cache";
             }
             CONSTANT nasys_icache_line_size
@@ -711,22 +711,22 @@ SYSTEM new_doom
             }
             CONSTANT nasys_has_dcache
             {
-               value = "1";
+               value = "0";
                comment = "True if instruction cache present";
             }
             CONSTANT nasys_dcache_size
             {
-               value = "2048";
+               value = "0";
                comment = "Size in bytes of data cache";
             }
             CONSTANT nasys_dcache_line_size
             {
-               value = "32";
+               value = "0";
                comment = "Size in bytes of each dcache line";
             }
             CONSTANT nasys_dcache_line_size_log2
             {
-               value = "5";
+               value = "-Infinity";
                comment = "Log2 size in bytes of each dcache line";
             }
          }
@@ -751,9 +751,9 @@ SYSTEM new_doom
          Top_Level_Ports_Are_Enumerated = "1";
          View 
          {
-            Settings_Summary = "Nios II/f
-            <br>&nbsp;&nbsp;4-Kbyte Instruction Cache
-            <br>&nbsp;&nbsp;2-Kbyte Data Cache
+            Settings_Summary = "Nios II/s
+            <br>&nbsp;&nbsp;0.5-Kbyte Instruction Cache
+            
             <br>&nbsp;&nbsp;JTAG Debug Module
             ";
             MESSAGES 
@@ -1061,385 +1061,289 @@ SYSTEM new_doom
             SIGNAL aaj
             {
                format = "Logic";
-               name = "d_address";
+               name = "d_irq";
                radix = "hexadecimal";
             }
             SIGNAL aak
             {
                format = "Logic";
-               name = "d_byteenable";
+               name = "d_address";
                radix = "hexadecimal";
             }
             SIGNAL aal
             {
                format = "Logic";
-               name = "d_read";
+               name = "d_byteenable";
                radix = "hexadecimal";
             }
             SIGNAL aam
             {
                format = "Logic";
-               name = "d_write";
+               name = "d_read";
                radix = "hexadecimal";
             }
             SIGNAL aan
             {
                format = "Logic";
-               name = "d_writedata";
+               name = "d_write";
                radix = "hexadecimal";
             }
             SIGNAL aao
             {
                format = "Logic";
-               name = "d_irq";
+               name = "d_writedata";
                radix = "hexadecimal";
             }
             SIGNAL aap
-            {
-               format = "Logic";
-               name = "d_readdatavalid";
-               radix = "hexadecimal";
-            }
-            SIGNAL aaq
             {
                format = "Divider";
                name = "base pipeline";
                radix = "";
             }
-            SIGNAL aar
+            SIGNAL aaq
             {
                format = "Logic";
                name = "clk";
                radix = "hexadecimal";
             }
-            SIGNAL aas
+            SIGNAL aar
             {
                format = "Logic";
                name = "reset_n";
                radix = "hexadecimal";
             }
+            SIGNAL aas
+            {
+               format = "Logic";
+               name = "M_stall";
+               radix = "hexadecimal";
+            }
             SIGNAL aat
-            {
-               format = "Logic";
-               name = "D_stall";
-               radix = "hexadecimal";
-            }
-            SIGNAL aau
-            {
-               format = "Logic";
-               name = "A_stall";
-               radix = "hexadecimal";
-            }
-            SIGNAL aav
             {
                format = "Logic";
                name = "F_pcb_nxt";
                radix = "hexadecimal";
             }
-            SIGNAL aaw
+            SIGNAL aau
             {
                format = "Logic";
                name = "F_pcb";
                radix = "hexadecimal";
             }
-            SIGNAL aax
+            SIGNAL aav
             {
                format = "Logic";
                name = "D_pcb";
                radix = "hexadecimal";
             }
-            SIGNAL aay
+            SIGNAL aaw
             {
                format = "Logic";
                name = "E_pcb";
                radix = "hexadecimal";
             }
-            SIGNAL aaz
+            SIGNAL aax
             {
                format = "Logic";
                name = "M_pcb";
                radix = "hexadecimal";
             }
-            SIGNAL aba
-            {
-               format = "Logic";
-               name = "A_pcb";
-               radix = "hexadecimal";
-            }
-            SIGNAL abb
+            SIGNAL aay
             {
                format = "Logic";
                name = "W_pcb";
                radix = "hexadecimal";
             }
-            SIGNAL abc
+            SIGNAL aaz
             {
                format = "Logic";
                name = "F_vinst";
                radix = "ascii";
             }
-            SIGNAL abd
+            SIGNAL aba
             {
                format = "Logic";
                name = "D_vinst";
                radix = "ascii";
             }
-            SIGNAL abe
+            SIGNAL abb
             {
                format = "Logic";
                name = "E_vinst";
                radix = "ascii";
             }
-            SIGNAL abf
+            SIGNAL abc
             {
                format = "Logic";
                name = "M_vinst";
                radix = "ascii";
             }
-            SIGNAL abg
-            {
-               format = "Logic";
-               name = "A_vinst";
-               radix = "ascii";
-            }
-            SIGNAL abh
+            SIGNAL abd
             {
                format = "Logic";
                name = "W_vinst";
                radix = "ascii";
             }
-            SIGNAL abi
+            SIGNAL abe
             {
                format = "Logic";
                name = "F_inst_ram_hit";
                radix = "hexadecimal";
             }
-            SIGNAL abj
+            SIGNAL abf
             {
                format = "Logic";
                name = "F_iw_valid";
                radix = "hexadecimal";
             }
-            SIGNAL abk
+            SIGNAL abg
             {
                format = "Logic";
                name = "F_issue";
                radix = "hexadecimal";
             }
-            SIGNAL abl
+            SIGNAL abh
             {
                format = "Logic";
                name = "F_kill";
                radix = "hexadecimal";
             }
-            SIGNAL abm
+            SIGNAL abi
             {
                format = "Logic";
                name = "D_kill";
                radix = "hexadecimal";
             }
-            SIGNAL abn
+            SIGNAL abj
             {
                format = "Logic";
                name = "D_refetch";
                radix = "hexadecimal";
             }
-            SIGNAL abo
+            SIGNAL abk
             {
                format = "Logic";
                name = "D_issue";
                radix = "hexadecimal";
             }
-            SIGNAL abp
+            SIGNAL abl
             {
                format = "Logic";
                name = "D_valid";
                radix = "hexadecimal";
             }
-            SIGNAL abq
-            {
-               format = "Logic";
-               name = "D_rdprs_stall";
-               radix = "hexadecimal";
-            }
-            SIGNAL abr
-            {
-               format = "Logic";
-               name = "D_rdprs_stall_done";
-               radix = "hexadecimal";
-            }
-            SIGNAL abs
+            SIGNAL abm
             {
                format = "Logic";
                name = "E_valid";
                radix = "hexadecimal";
             }
-            SIGNAL abt
+            SIGNAL abn
             {
                format = "Logic";
                name = "M_valid";
                radix = "hexadecimal";
             }
-            SIGNAL abu
-            {
-               format = "Logic";
-               name = "A_valid";
-               radix = "hexadecimal";
-            }
-            SIGNAL abv
+            SIGNAL abo
             {
                format = "Logic";
                name = "W_valid";
                radix = "hexadecimal";
             }
-            SIGNAL abw
+            SIGNAL abp
             {
                format = "Logic";
                name = "W_wr_dst_reg";
                radix = "hexadecimal";
             }
-            SIGNAL abx
+            SIGNAL abq
             {
                format = "Logic";
                name = "W_dst_regnum";
                radix = "hexadecimal";
             }
-            SIGNAL aby
+            SIGNAL abr
             {
                format = "Logic";
                name = "W_wr_data";
                radix = "hexadecimal";
             }
-            SIGNAL abz
+            SIGNAL abs
+            {
+               format = "Logic";
+               name = "F_en";
+               radix = "hexadecimal";
+            }
+            SIGNAL abt
             {
                format = "Logic";
                name = "D_en";
                radix = "hexadecimal";
             }
-            SIGNAL aca
+            SIGNAL abu
             {
                format = "Logic";
                name = "E_en";
                radix = "hexadecimal";
             }
-            SIGNAL acb
+            SIGNAL abv
             {
                format = "Logic";
                name = "M_en";
                radix = "hexadecimal";
             }
-            SIGNAL acc
-            {
-               format = "Logic";
-               name = "A_en";
-               radix = "hexadecimal";
-            }
-            SIGNAL acd
+            SIGNAL abw
             {
                format = "Logic";
                name = "F_iw";
                radix = "hexadecimal";
             }
-            SIGNAL ace
+            SIGNAL abx
             {
                format = "Logic";
                name = "D_iw";
                radix = "hexadecimal";
             }
-            SIGNAL acf
+            SIGNAL aby
             {
                format = "Logic";
                name = "E_iw";
                radix = "hexadecimal";
             }
-            SIGNAL acg
-            {
-               format = "Logic";
-               name = "M_pipe_flush";
-               radix = "hexadecimal";
-            }
-            SIGNAL ach
-            {
-               format = "Logic";
-               name = "M_pipe_flush_baddr";
-               radix = "hexadecimal";
-            }
-            SIGNAL aci
-            {
-               format = "Logic";
-               name = "norm_intr_req";
-               radix = "hexadecimal";
-            }
-            SIGNAL acj
-            {
-               format = "Logic";
-               name = "A_status_reg";
-               radix = "hexadecimal";
-            }
-            SIGNAL ack
-            {
-               format = "Logic";
-               name = "A_status_reg_pie";
-               radix = "hexadecimal";
-            }
-            SIGNAL acl
-            {
-               format = "Logic";
-               name = "A_estatus_reg";
-               radix = "hexadecimal";
-            }
-            SIGNAL acm
-            {
-               format = "Logic";
-               name = "A_estatus_reg_pie";
-               radix = "hexadecimal";
-            }
-            SIGNAL acn
-            {
-               format = "Logic";
-               name = "A_bstatus_reg";
-               radix = "hexadecimal";
-            }
-            SIGNAL aco
-            {
-               format = "Logic";
-               name = "A_bstatus_reg_pie";
-               radix = "hexadecimal";
-            }
-            SIGNAL acp
-            {
-               format = "Logic";
-               name = "A_ienable_reg";
-               radix = "hexadecimal";
-            }
-            SIGNAL acq
-            {
-               format = "Logic";
-               name = "A_ienable_reg_irq0";
-               radix = "hexadecimal";
-            }
-            SIGNAL acr
-            {
-               format = "Logic";
-               name = "A_ipending_reg";
-               radix = "hexadecimal";
-            }
-            SIGNAL acs
-            {
-               format = "Logic";
-               name = "A_ipending_reg_irq0";
-               radix = "hexadecimal";
-            }
-            SIGNAL act
-            {
-               format = "Logic";
-               name = "A_cpuid_reg";
-               radix = "hexadecimal";
-            }
-            SIGNAL acu
+            SIGNAL abz
             {
                format = "Logic";
                name = "E_valid_prior_to_hbreak";
+               radix = "hexadecimal";
+            }
+            SIGNAL aca
+            {
+               format = "Logic";
+               name = "M_pipe_flush_nxt";
+               radix = "hexadecimal";
+            }
+            SIGNAL acb
+            {
+               format = "Logic";
+               name = "M_pipe_flush_baddr_nxt";
+               radix = "hexadecimal";
+            }
+            SIGNAL acc
+            {
+               format = "Logic";
+               name = "M_status_reg_pie";
+               radix = "hexadecimal";
+            }
+            SIGNAL acd
+            {
+               format = "Logic";
+               name = "M_ienable_reg";
+               radix = "hexadecimal";
+            }
+            SIGNAL ace
+            {
+               format = "Logic";
+               name = "intr_req";
                radix = "hexadecimal";
             }
          }
@@ -1567,7 +1471,7 @@ SYSTEM new_doom
             Is_Big_Endian = "0";
             Is_Enabled = "1";
             JTAG_Hub_Base_Id = "262254";
-            JTAG_Hub_Instance_Id = "1";
+            JTAG_Hub_Instance_Id = "0";
             Connection_Limit = "1";
             MASTERED_BY cpu_0/data_master
             {
@@ -2560,13 +2464,13 @@ SYSTEM new_doom
       }
       HDL_INFO 
       {
-         Simulation_HDL_Files = "__PROJECT_DIRECTORY__/skygen.vhd";
+         Simulation_HDL_Files = "__PROJECT_DIRECTORY__/skygen.vhd,__PROJECT_DIRECTORY__/skygen_0.vhd";
       }
       WIZARD_SCRIPT_ARGUMENTS 
       {
       }
    }
-   MODULE de2_ps2_0
+   MODULE de2_ps2_1
    {
       SLAVE avalon_slave_0
       {
@@ -2592,7 +2496,6 @@ SYSTEM new_doom
                width = "1";
                direction = "input";
                Is_Enabled = "1";
-               declare_one_bit_as_std_logic_vector = "1";
             }
             PORT read
             {
@@ -2649,9 +2552,9 @@ SYSTEM new_doom
             MASTERED_BY cpu_0/data_master
             {
                priority = "1";
-               Offset_Address = "0x01081088";
+               Offset_Address = "0x00000000";
             }
-            Base_Address = "0x01081088";
+            Base_Address = "0x00000000";
             Address_Group = "0";
             IRQ_MASTER cpu_0/data_master
             {
@@ -2697,7 +2600,7 @@ SYSTEM new_doom
       }
       HDL_INFO 
       {
-         Simulation_HDL_Files = "__PROJECT_DIRECTORY__/de2_ps2.vhd";
+         Simulation_HDL_Files = "__PROJECT_DIRECTORY__/de2_ps2.vhd,__PROJECT_DIRECTORY__/de2_ps2_1.vhd";
       }
       WIZARD_SCRIPT_ARGUMENTS 
       {

@@ -32,13 +32,13 @@ use lpm.all;
 entity cpu_0_mult_cell is 
         port (
               -- inputs:
-                 signal A_mul_src1 : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-                 signal A_mul_src2 : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_mul_src1 : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+                 signal M_mul_src2 : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
                  signal clk : IN STD_LOGIC;
                  signal reset_n : IN STD_LOGIC;
 
               -- outputs:
-                 signal A_mul_cell_result : OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+                 signal M_mul_cell_result : OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
               );
 end entity cpu_0_mult_cell;
 
@@ -87,8 +87,8 @@ GENERIC (
         aclr0 : IN STD_LOGIC
       );
   end component altmult_add;
-                         signal A_mul_cell_result_part_1 :  STD_LOGIC_VECTOR (31 DOWNTO 0);
-                signal A_mul_cell_result_part_2 :  STD_LOGIC_VECTOR (15 DOWNTO 0);
+                         signal M_mul_cell_result_part_1 :  STD_LOGIC_VECTOR (31 DOWNTO 0);
+                signal M_mul_cell_result_part_2 :  STD_LOGIC_VECTOR (15 DOWNTO 0);
                 signal mul_clr :  STD_LOGIC;
 
 begin
@@ -130,10 +130,10 @@ begin
     port map(
             aclr0 => mul_clr,
             clock0 => clk,
-            dataa => A_mul_src1(15 DOWNTO 0),
-            datab => A_mul_src2(15 DOWNTO 0),
+            dataa => M_mul_src1(15 DOWNTO 0),
+            datab => M_mul_src2(15 DOWNTO 0),
             ena0 => std_logic'('1'),
-            result => A_mul_cell_result_part_1
+            result => M_mul_cell_result_part_1
     );
 
   the_altmult_add_part_2 : altmult_add
@@ -172,13 +172,13 @@ begin
     port map(
             aclr0 => mul_clr,
             clock0 => clk,
-            dataa => A_mul_src1(31 DOWNTO 16),
-            datab => A_mul_src2(15 DOWNTO 0),
+            dataa => M_mul_src1(31 DOWNTO 16),
+            datab => M_mul_src2(15 DOWNTO 0),
             ena0 => std_logic'('1'),
-            result => A_mul_cell_result_part_2
+            result => M_mul_cell_result_part_2
     );
 
-  A_mul_cell_result <= A_EXT (Std_Logic_Vector'(((std_logic_vector'("0") & (A_mul_cell_result_part_1(31 DOWNTO 16))) + (std_logic_vector'("0") & (A_mul_cell_result_part_2))) & A_mul_cell_result_part_1(15 DOWNTO 0)), 32);
+  M_mul_cell_result <= A_EXT (Std_Logic_Vector'(((std_logic_vector'("0") & (M_mul_cell_result_part_1(31 DOWNTO 16))) + (std_logic_vector'("0") & (M_mul_cell_result_part_2))) & M_mul_cell_result_part_1(15 DOWNTO 0)), 32);
 
 end europa;
 

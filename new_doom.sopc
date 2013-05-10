@@ -10,19 +10,11 @@
          type = "String";
       }
    }
-   element niosInterface_1_0.avalon_slave_0
+   element de2_ps2_1.avalon_slave_0
    {
       datum baseAddress
       {
-         value = "17305600";
-         type = "String";
-      }
-   }
-   element de2_ps2_0.avalon_slave_0
-   {
-      datum baseAddress
-      {
-         value = "17305736";
+         value = "0";
          type = "String";
       }
    }
@@ -31,6 +23,14 @@
       datum baseAddress
       {
          value = "16777216";
+         type = "String";
+      }
+   }
+   element niosInterface_1_0.avalon_slave_0
+   {
+      datum baseAddress
+      {
+         value = "17305600";
          type = "String";
       }
    }
@@ -60,7 +60,7 @@
          type = "boolean";
       }
    }
-   element de2_ps2_0
+   element de2_ps2_1
    {
       datum _sortIndex
       {
@@ -112,8 +112,13 @@
       }
       datum megawizard_uipreferences
       {
-         value = "{}";
+         value = "{output_language=VHDL, output_directory=/home/user2/spring13/ag3287/CUDoom}";
          type = "String";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
       }
    }
    element skygen_0
@@ -138,8 +143,8 @@
  <parameter name="maxAdditionalLatency" value="0" />
  <parameter name="projectName" value="CUDoom.qpf" />
  <parameter name="sopcBorderPoints" value="true" />
- <parameter name="systemHash" value="-30825183154" />
- <parameter name="timeStamp" value="1367469527838" />
+ <parameter name="systemHash" value="-22851026319" />
+ <parameter name="timeStamp" value="1368083406517" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <module kind="clock_source" version="12.1" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="50000000" />
@@ -198,7 +203,7 @@
   <parameter name="resetSlave" value="sdram_0.s1" />
   <parameter name="resetOffset" value="0" />
   <parameter name="muldiv_multiplierType" value="EmbeddedMulFast" />
-  <parameter name="muldiv_divider" value="true" />
+  <parameter name="muldiv_divider" value="false" />
   <parameter name="mpu_useLimit" value="false" />
   <parameter name="mpu_numOfInstRegion" value="8" />
   <parameter name="mpu_numOfDataRegion" value="8" />
@@ -218,8 +223,8 @@
   <parameter name="internalIrqMaskSystemInfo" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='cpu_0.jtag_debug_module' start='0x1080800' end='0x1081000' /></address-map>]]></parameter>
   <parameter name="instAddrWidth" value="25" />
-  <parameter name="impl" value="Fast" />
-  <parameter name="icache_size" value="_4096" />
+  <parameter name="impl" value="Small" />
+  <parameter name="icache_size" value="_512" />
   <parameter name="icache_ramBlockType" value="Automatic" />
   <parameter name="icache_numTCIM" value="_0" />
   <parameter name="icache_burstType" value="None" />
@@ -240,7 +245,7 @@
   <parameter name="dcache_numTCDM" value="_0" />
   <parameter name="dcache_lineSize" value="_32" />
   <parameter name="dcache_bursts" value="false" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='skygen_0.avalon_slave_0' start='0x1000000' end='0x1080000' /><slave name='cpu_0.jtag_debug_module' start='0x1080800' end='0x1081000' /><slave name='niosInterface_1_0.avalon_slave_0' start='0x1081000' end='0x1081080' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1081080' end='0x1081088' /><slave name='de2_ps2_0.avalon_slave_0' start='0x1081088' end='0x108108A' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='de2_ps2_1.avalon_slave_0' start='0x0' end='0x2' /><slave name='sdram_0.s1' start='0x800000' end='0x1000000' /><slave name='skygen_0.avalon_slave_0' start='0x1000000' end='0x1080000' /><slave name='cpu_0.jtag_debug_module' start='0x1080800' end='0x1081000' /><slave name='niosInterface_1_0.avalon_slave_0' start='0x1081000' end='0x1081080' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x1081080' end='0x1081088' /></address-map>]]></parameter>
   <parameter name="dataAddrWidth" value="25" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
   <parameter name="cpuReset" value="false" />
@@ -302,8 +307,10 @@
   <parameter name="registerDataIn" value="true" />
   <parameter name="rowWidth" value="12" />
  </module>
- <module kind="skygen" version="1.0" enabled="1" name="skygen_0" />
- <module kind="de2_ps2" version="1.0" enabled="1" name="de2_ps2_0" />
+ <module kind="skygen" version="1.0" enabled="1" name="skygen_0">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="50000000" />
+ </module>
+ <module kind="de2_ps2" version="1.0" enabled="1" name="de2_ps2_1" />
  <connection kind="clock" version="12.1" start="clk_0.clk" end="cpu_0.clk" />
  <connection
    kind="avalon"
@@ -376,13 +383,13 @@
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x01000000" />
  </connection>
- <connection kind="clock" version="12.1" start="clk_0.clk" end="de2_ps2_0.clock" />
+ <connection kind="clock" version="12.1" start="clk_0.clk" end="de2_ps2_1.clock" />
  <connection
    kind="avalon"
    version="12.1"
    start="cpu_0.data_master"
-   end="de2_ps2_0.avalon_slave_0">
+   end="de2_ps2_1.avalon_slave_0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01081088" />
+  <parameter name="baseAddress" value="0x0000" />
  </connection>
 </system>

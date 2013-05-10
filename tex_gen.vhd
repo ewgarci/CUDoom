@@ -17,7 +17,7 @@ entity tex_gen is
   port (
     reset : in std_logic;
     clk   : in std_logic;                    -- Should be 50 MHz
---	 clk25 : in std_logic;
+	-- clk25 : in std_logic;
 	 side1   : in std_logic;
 	 side2   : in std_logic;
 	 bool    : in std_logic;
@@ -95,6 +95,8 @@ constant DIVTABLE: rom_type := (
 	signal result_1 : std_logic_vector(35 downto 0);
 	signal sideSig : std_logic;
 	signal boolSig : std_logic := '0';
+	signal texNumSig : unsigned (3 downto 0);
+	signal texNum2Sig : unsigned (3 downto 0); 
 --	signal tmp : unsigned (12 downto 0);
 --	signal floorXprev : unsigned (17 downto 0);  
 --	signal floorYprev : unsigned (17 downto 0 );
@@ -134,7 +136,7 @@ begin
 		result	=> result_1
   );
 	
-	process (floorX, floorY, tmpPosX, tmpPosY, invDistWall, y_local ,row_end , cur_row_local, texX,texNum, line_minus_h,invLineHeight,texX2,texNum2, line_minus_h2,invLineHeight2, bool, side1, side2, result_0,result_1 ,row_Mid)
+	process (floorX, floorY, tmpPosX, tmpPosY, invDistWall, y ,row_end , cur_row, texX,texNum, line_minus_h,invLineHeight,texX2,texNum2, line_minus_h2,invLineHeight2, bool, side1, side2, result_0,result_1 ,row_Mid)
 	
 	--process (clk)
 	
@@ -155,7 +157,7 @@ begin
 	variable checker_board_pattern : unsigned (0 downto 0);
 
 	begin
-	--	if (rising_edge(clk) )	then
+		--if (rising_edge(clk) )	then
 			
 			-- gated inputs from VGA
 			-- gated outputs to asynchronous VGA and Texture ROM processes 
@@ -175,17 +177,17 @@ begin
 			----------------------------------------------------------------
 			
 			-- stage 1 pipeline
-			temp_mult_0 :=  unsigned(signed(cur_row_local sll 1)+ line_minus_h) (17 downto 0);
+			temp_mult_0 :=  unsigned(signed(cur_row sll 1)+ line_minus_h) (17 downto 0);
 			inA_0 <= std_logic_vector(temp_mult_0);
 			inB_0 <= std_logic_vector(invlineHeight);
 			texY_0 := unsigned(result_0) srl 16 ;
 			
-			temp_mult_1 :=  unsigned(signed(cur_row_local sll 1)+ line_minus_h2) (17 downto 0);
+			temp_mult_1 :=  unsigned(signed(cur_row sll 1)+ line_minus_h2) (17 downto 0);
 			inA_1 <= std_logic_vector(temp_mult_1);
 			inB_1 <= std_logic_vector(invlineHeight2);
 			texY_1 := unsigned(result_1) srl 16 ;	
 			
-			currentDist := DIVTABLE(to_integer(480 - y_local));
+			currentDist := DIVTABLE(to_integer(480 - y));
 			weight := currentDist * invDistWall;
 			tmp := "1000000000000" - weight(23 downto 12);
 			
@@ -219,25 +221,30 @@ begin
 	
 			checker_board_pattern := unsigned(currentFloorX(29 downto 24) + currentFloorY(29 downto 24))(0 downto 0);
 			
-			if (y_local < row_end ) then				
+			if (y <= row_end +1 ) then				
 	
-				if (bool ='1' or (y_local >= row_mid)) then
+				if (bool ='1' or (y >= row_mid)) then
 					boolSig <= '1';
 					tex_addr <= texNum(1 downto 0) & texY_0(5 downto 0) & texX;
 					sideSig <= side1;
 				else
 					boolSig <= '0';
 					tex_addr <= texNum2(1 downto 0) & texY_1(5 downto 0) & texX2;
+					
 					sideSig <= side2;	
 				end if;
 				
+				texNumSig <= texNum;
+				texNum2Sig <= texNum2;
 			else
 
 				if (checker_board_pattern = "1") then
 					tex_addr <= ( "11"& floorTexY & floorTexX);
 				else 
-					tex_addr <= ( "01"& floorTexY & floorTexX);
+					tex_addr <= ( "00"& floorTexY & floorTexX);
 				end if;
+				texNumSig <= "0000";
+				texNum2Sig <= "0000";
 				sideSig <= '0';
 				boolSig <= '0';
 			end if;
@@ -256,24 +263,19 @@ begin
 	
 	
 	
-	
+
+			
 	process (clk)
 	begin
 		if (rising_edge(clk)) then
-			--if (clk25 = '1') then			
-				y_local <= y;
-				cur_row_local <= cur_row;
-				
-				tex_addr_out <= tex_addr;
-				sideOut <= sideSig;
-				boolOut <= boolSig;
-				texNumOut  <= texNum;
-				texNum2Out <=  texNum2;
-			
-			--end if;
+			tex_addr_out <= tex_addr;
+			sideOut <= sideSig;
+			boolOut <= boolSig;
+			texNumOut  <= texNumSig;
+			texNum2Out <=  texNum2Sig;
 		end if;
 	end process;
-	
+--	
 
 --  RowStartEndGen : process (clk)
 --  begin

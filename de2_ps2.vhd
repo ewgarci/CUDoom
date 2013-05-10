@@ -175,7 +175,7 @@ entity de2_ps2 is
     clk        : in std_logic;
     reset      : in std_logic;
 
-    address    : in std_logic_vector(0 downto 0);
+    address    : in std_logic;
     read       : in std_logic;
     chipselect : in std_logic;
     readdata   : out std_logic_vector(7 downto 0);
@@ -205,14 +205,14 @@ begin
   process (clk)
   begin
     if rising_edge(clk) then
-      DoRead <= read and chipselect and address(0);      
+      DoRead <= read and chipselect and address;      
     end if;  
   end process;
   
   process (Data, DataAvailable, address, chipselect)
   begin
     if chipselect = '1' then 
-      if address(0) = '1' then 
+      if address = '1' then 
         readdata <= std_logic_vector(Data);
       else
         readdata <= "0000000" & DataAvailable;

@@ -197,7 +197,7 @@ architecture datapath of top is
   
   signal row_s     : unsigned (8 downto 0);
   signal row_e     : unsigned (8 downto 0);
-  signal tex_rom_out   : unsigned (7 downto 0);
+  signal tex_rom_out   : unsigned (23 downto 0);
   signal flr_rom_out   : unsigned (7 downto 0);
   signal frame_rate : unsigned (7 downto 0);
   signal state_out : std_LOGIC_VECTOR(11 downto 0);
@@ -242,16 +242,21 @@ architecture datapath of top is
 	signal tmpPosX  		: unsigned (31 downto 0);
 	signal tmpPosY		   : unsigned (31 downto 0);
 	
-
+	--FIFO signals
+	signal rdempty_sig : std_logic;
+	signal wrfull_sig : std_logic;
+	signal rdreq_sig : std_logic;
+	signal q_fifo  : std_logic_vector (255 downto 0);
+	
 begin
 
-  process (clk_sys)
-  begin
-    if rising_edge(clk_sys) then
-      clk25 <= not clk25;
-		clk25_shift <= not clk25_shift;
-    end if;
-  end process;
+--  process (clk_sys)
+--  begin
+--    if rising_edge(clk_sys) then
+--      clk25 <= not clk25;
+--		clk25_shift <= not clk25_shift;
+--    end if;
+--  end process;
 
   process (clk_sys)
   begin
@@ -268,8 +273,16 @@ begin
   V0: entity work.sdram_pll port map (
 		inclk0 => CLOCK_50,
 		c0	=> clk_dram,	
-		c1	=> clk_sys
+		c1	=> clk_sys,
+		c2	=> clk25
 	);
+	
+--	V7: entity work.pll_25 port map (
+--		
+--		inclk0 => clk_sys,
+--		c0 => clk25
+--		
+--	);
 
   V1: entity work.new_doom port map (
  -- 1) global signals:
@@ -310,8 +323,8 @@ begin
       Sram_mux_out_from_the_skygen_0 => sram_mux,
 
    -- PS2      
-    PS2_Clk_to_the_de2_ps2_0 => PS2_CLK,
-    PS2_Data_to_the_de2_ps2_0 => PS2_DAT
+    PS2_Clk_to_the_de2_ps2_1 => PS2_CLK,
+    PS2_Data_to_the_de2_ps2_1 => PS2_DAT
   );
 
 
@@ -343,11 +356,11 @@ begin
   
    V3: entity work.tex_gen port map (
     reset => '0',
-    clk   => clk25_shift,        -- Should be 50 MHz
+    clk   => clk25,        -- Should be 50 MHz
 	 --clk25 => clk25,
 	 bool => mem_out(223),
 	 boolOut => boolOut,
-	 Cur_Row		=> "00" & Cur_Row,
+	 Cur_Row		=> "00" & Cur_Row_from_mem,
 	 side1 => mem_out(63),
 	 side2 => mem_out(62),
 	 texNumOut => texNumOut,
@@ -369,7 +382,7 @@ begin
 	tmpPosX				=> unsigned(mem_out(117 downto 100)),
 	tmpPosY				=> unsigned(mem_out(135 downto 118)),
 	invDistWall			=> unsigned(mem_out(147 downto 136)),
-	y						=> Cur_Row(8 downto 0)
+	y						=> Cur_Row_from_mem(8 downto 0)
 
   );
   
@@ -380,10 +393,10 @@ begin
 	
   );
   
-  V5: entity work.memcustom port map (
-		clock			=> clk_sys,
---		data			=> data_out,
-		data			=> x"FFFFFF" &
+  V9: ENTITY work.FIFO port map(
+		data		=> x"FFF" &
+							"00" &
+							std_logic_vector (colAddrOut) &
 							std_logic_vector(texNum2) &
 							std_logic_vector(texNum) &
 							bool &
@@ -406,11 +419,33 @@ begin
 							STD_LOGIC_VECTOR(drawEnd(8 downto 0)) & 
 							STD_LOGIC_VECTOR(texX(5 downto 0)) & 
 							"00",
-							
+		rdclk		=> clk25,
+		rdreq		=> rdreq_sig,
+		wrclk		=>  clk_sys,
+		wrreq		=>  write_en,
+		q		=> q_fifo,
+		rdempty	 => rdempty_sig ,
+		wrfull	=> wrfull_sig 
+	);
+	
+	rdReqGen: process (rdempty_sig) 
+	
+	begin 
+	
+		rdreq_sig <= not rdempty_sig;
+	
+	end process rdReqGen;
+	
+  
+  V5: entity work.memcustom port map (
+		clock			=> clk25,
+--		data			=> data_out,
+		data			=> q_fifo,
 		rdaddress 	=> Cur_Col,
-		wraddress	=> colAddrOut,
+		rd_req      => rdreq_sig,
+--		wraddress	=> colAddrOut,
 --		wraddress	=>  data_out(255 downto 246),
-		wren	 		=> write_en,
+		--wren	 		=> write_en,
    	VGA_BLANK   => VGA_BLANK_SIG,
 		row_in      => cur_row,
 		row_out     => cur_row_from_mem,
@@ -461,6 +496,7 @@ begin
 				clk           => clk_sys,
 				control       =>  ctrl,
 				VGA_BLANK     => VGA_BLANK_SIG,
+				wrfull	=> wrfull_sig ,
 				posX 			  => unsigned(data_out(31 downto 0)),
 				posY 			  => unsigned(data_out(63 downto 32)),
 				countstep 	  => unsigned(data_out(95 downto 64)),
@@ -494,7 +530,9 @@ begin
 				state_out     => state_out
 				
 );
-	
+
+
+
 --	V8: entity work.floorMod port map (
 --			clk					=> clk_sys,
 --			floorX				=> unsigned(mem_out(81 downto 64)),

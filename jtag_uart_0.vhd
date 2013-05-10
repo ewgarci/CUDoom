@@ -1359,7 +1359,7 @@ begin
 --synthesis read_comments_as_HDL on
 --    jtag_uart_0_alt_jtag_atlantic : alt_jtag_atlantic
 --      generic map(
---        INSTANCE_ID => 1,
+--        INSTANCE_ID => 0,
 --        LOG2_RXFIFO_DEPTH => 6,
 --        LOG2_TXFIFO_DEPTH => 6,
 --        SLD_AUTO_INSTANCE_INDEX => "YES"

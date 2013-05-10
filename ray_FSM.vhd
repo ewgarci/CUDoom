@@ -6,6 +6,7 @@ entity ray_FSM is
         port ( clk             : in  std_logic;
 					control         : in std_logic;
 					VGA_BLANK       : in std_logic;
+					wrfull          : in std_logic;
 					posX            : in unsigned(31 downto 0);
 					posY            : in  unsigned (31 downto 0);
 					countstep       : in unsigned (31 downto 0);
@@ -46,18 +47,18 @@ type rom_type is array(0 to 575) of unsigned (3 downto 0);
 constant MAP_ROM: rom_type := (
 
   x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",
-  x"9",x"0",x"0",x"7",x"0",x"8",x"0",x"8",x"0",x"0",x"8",x"7",x"0",x"2",x"7",x"2",x"7",x"2",x"7",x"2",x"0",x"7",x"0",x"9",
-  x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"8",x"8",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"0",x"0",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"9",
-  x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"8",x"8",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"4",x"0",x"0",x"0",x"0",x"0",x"6",x"6",x"6",x"0",x"6",x"7",x"9",
-  x"9",x"8",x"8",x"8",x"0",x"8",x"8",x"8",x"8",x"8",x"8",x"4",x"4",x"4",x"4",x"4",x"4",x"6",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"7",x"7",x"7",x"0",x"7",x"7",x"7",x"7",x"0",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"4",x"0",x"4",x"0",x"6",x"7",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"0",x"0",x"0",x"0",x"0",x"9",
+  x"9",x"0",x"0",x"7",x"0",x"8",x"0",x"8",x"0",x"0",x"8",x"7",x"0",x"2",x"5",x"2",x"7",x"2",x"5",x"2",x"0",x"5",x"0",x"9",
+  x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"7",x"6",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+  x"9",x"0",x"0",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"6",x"9",
+  x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"8",x"7",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"4",x"0",x"0",x"0",x"0",x"0",x"6",x"6",x"6",x"0",x"6",x"6",x"9",
+  x"9",x"8",x"8",x"8",x"0",x"8",x"8",x"8",x"8",x"7",x"8",x"4",x"4",x"4",x"4",x"4",x"4",x"6",x"0",x"0",x"0",x"0",x"0",x"9",
+  x"9",x"7",x"7",x"7",x"0",x"7",x"7",x"7",x"7",x"0",x"7",x"0",x"8",x"0",x"8",x"0",x"5",x"4",x"0",x"4",x"0",x"6",x"6",x"9",
+  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"5",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"0",x"0",x"0",x"0",x"0",x"9",
   x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"6",x"0",x"0",x"0",x"0",x"7",x"9",
-  x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"6",x"0",x"6",x"0",x"6",x"0",x"9",
+  x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"6",x"6",x"0",x"6",x"0",x"6",x"0",x"9",
   x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"4",x"6",x"0",x"6",x"6",x"9",
-  x"9",x"2",x"7",x"7",x"0",x"7",x"7",x"7",x"7",x"8",x"8",x"4",x"0",x"6",x"8",x"4",x"8",x"3",x"3",x"3",x"0",x"3",x"6",x"9",
+  x"9",x"2",x"7",x"7",x"0",x"7",x"7",x"7",x"5",x"8",x"8",x"4",x"0",x"6",x"8",x"4",x"5",x"3",x"3",x"3",x"0",x"3",x"6",x"9",
   x"9",x"7",x"2",x"2",x"0",x"2",x"2",x"2",x"2",x"4",x"6",x"4",x"0",x"0",x"6",x"0",x"6",x"3",x"0",x"0",x"0",x"0",x"0",x"9",
   x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"4",x"3",x"0",x"0",x"0",x"0",x"6",x"9",
   x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"4",x"3",x"0",x"0",x"0",x"0",x"0",x"9",
@@ -67,13 +68,13 @@ constant MAP_ROM: rom_type := (
   x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"2",x"5",x"0",x"5",x"0",x"5",x"0",x"5",x"0",x"9",
   x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
   x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"2",x"5",x"0",x"5",x"0",x"5",x"0",x"5",x"0",x"9",
-  x"9",x"2",x"7",x"2",x"7",x"2",x"7",x"2",x"2",x"2",x"0",x"7",x"0",x"8",x"8",x"0",x"5",x"0",x"5",x"0",x"7",x"0",x"5",x"9",
+  x"9",x"2",x"7",x"2",x"7",x"2",x"7",x"2",x"2",x"2",x"0",x"6",x"0",x"8",x"8",x"0",x"5",x"0",x"5",x"0",x"7",x"0",x"5",x"9",
   x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9"
 );
 
 
 
-type states is (A, B, C, D, E ,F, G, H, I,J,K);
+type states is (A, B, C, D, E ,F, G, H, I,J,K,L);
 signal state : states := A;
 
 -- loop mod signals
@@ -118,8 +119,8 @@ signal remainder_invline2 : unsigned(31 downto 0):=(others => '0');
 signal remainder_invdist : unsigned(31 downto 0):=(others => '0');
 signal inc : unsigned(4 downto 0):=(others => '0');
 
-signal inc_limit1 : unsigned(9 downto 0) := "1111111111";
-signal inc_limit2 : unsigned(4 downto 0) := "11111";
+signal inc_limit1 : unsigned(11 downto 0) := "111111111111";
+signal inc_limit2 : unsigned(5 downto 0) := "111111";
 
 signal bitselect : unsigned(31 downto 0):=(others => '0');
 signal tmpCount : unsigned (31 downto 0):=(others => '0');
@@ -214,8 +215,8 @@ if rising_edge(clk) then
 
  case state is
 		when A =>
-				  inc_limit1 <= "1111111111";
-				  inc_limit2 <= "11111";
+				  inc_limit1 <= "111111111111";
+				  inc_limit2 <= "111111";
 				  state_out <= "100000000000";
 				  ready <= '1';
 				  WE<='0';
@@ -268,7 +269,7 @@ if rising_edge(clk) then
 				  ready <= '0';
 				  WE<='0';
 				  inc_limit1 <= inc_limit1 - 1;
-				  if (mapSpot2 < x"5" and inc_limit1 > "0000000000" ) then
+				  if (mapSpot2 < x"5" and inc_limit1 > "000000000000" ) then
 
 						 if (mapSpot = x"0") then
 									count <= count + countstep_sig;
@@ -333,7 +334,7 @@ if rising_edge(clk) then
 				  WE<='0';
 				  inc_limit2 <= inc_limit2 - 1;
 
-				  if( (mapSpot = x"0" and mapSpot2 < x"5") or inc_limit2 = "00000") then
+				  if( (mapSpot = x"0" and mapSpot2 < x"5") or inc_limit2 = "000000") then
 							 state <= E;
 				  else
 						 if (mapSpot > x"0") then
@@ -507,11 +508,11 @@ if rising_edge(clk) then
 
 				  if (mapSpot > x"4") then
 							 bool <= '1';
-							 drawStartTmp := halfscreenHeight - lineheight -( "0" & lineheight(31 downto 1));
+							 drawStartTmp := halfscreenHeight - (lineheight(30 downto 0)& "0")  - ("0" & lineheight(31 downto 1));
 							 texNum <= mapSpot - 5;
 				  else
 							 bool <= '0';
-							 drawStartTmp := halfscreenHeight - lineheight2 -( "0" & lineheight2(31 downto 1));
+							 drawStartTmp := halfscreenHeight - (lineheight2(30 downto 0) & "0") -("0" & lineheight2(31 downto 1));
 							 texNum <= mapSpot - 1;
 				  end if;
 
@@ -548,26 +549,41 @@ if rising_edge(clk) then
 		when I =>
 				  state_out <= "000000001000";
 				  ready <= '0';
-				  WE<='1';
-				  state <= J;
-				  
+				  WE<='0';
+				  if (wrfull = '1') then
+						state <= I;
+				  else
+						state <= J;
+				  end if;
 		when J =>
 				  state_out <= "000000000100";
 				  ready <= '0';
 				  WE<='1';
-				  if (colAddr >= "1001111111") then
-						state <= K;
-				  else
-						state <= A;
-				  end if;
+				  state <= K;		  
+				  
+--		when K =>
+--				  state_out <= "000000000010";
+--				  ready <= '0';
+--				  WE<='0';
+--				  state <= L;
+				  
 		when K =>
 				  state_out <= "000000000010";
 				  ready <= '0';
-				  WE<='1';
+				  WE<='0';
+				  if (colAddr >= "1001111111") then
+						state <= L;
+				  else
+						state <= A;
+				  end if;
+		when L =>
+				  state_out <= "000000000001";
+				  ready <= '0';
+				  WE<='0';
 				  if (VGA_BLANK = '1') then
 						state <= A;
 				  else
-				      state <= K;
+				      state <= L;
 				  end if;
 
 		when others =>

@@ -51,7 +51,7 @@ ARCHITECTURE SYN OF skygen IS
         SIGNAL  FB_angle                : unsigned (9 downto 0);
 
 	SIGNAL  vga_addr_lsb            : std_logic;   
-	SIGNAL  vga_addr_tmp		: unsigned (18 downto 0) ;
+	--SIGNAL  vga_addr_tmp		: unsigned (18 downto 0) ;
 	SIGNAL  vga_addr		: STD_LOGIC_VECTOR (17 downto 0) ;
   
 BEGIN
@@ -73,18 +73,29 @@ BEGIN
   end if;
   end process MEM;
 
-        Cur_Row <=  unsigned(Cur_Row_in(9 downto 0));
-        FB_angle <= unsigned(FB_angle_in(9 downto 0)); 
+        --Cur_Row <=  unsigned(Cur_Row_in(9 downto 0));
+        --FB_angle <= unsigned(FB_angle_in(9 downto 0)); 
 
-	addrGen : process (clk)
+	addrGen : process (cur_row_in,FB_angle_in)
+	variable vga_addr_tmp : unsigned(18 downto 0);
+	
 	begin
-		if rising_edge(clk) then
-			vga_addr_tmp <= Cur_Row(9 downto 0)&"000000000" + (FB_angle srl 1);
-                        vga_addr_lsb <= vga_addr_tmp(0);
-		end if;
+			vga_addr_tmp := unsigned(Cur_Row_in(9 downto 0)&"000000000") + unsigned(FB_angle_in(9 downto 1));
+         vga_addr_lsb <= FB_angle_in(0);
+			vga_addr <= std_logic_vector(vga_addr_tmp(17 downto 0));
 	end process addrGen;
 
-  vga_addr <= std_logic_vector(vga_addr_tmp(17 downto 0));
+	skyPixelGen : process (SRAM_DQ, vga_addr_lsb)
+	
+	begin
+		if (vga_addr_lsb = '0') then
+			Sky_pixel <= SRAM_DQ(7 downto 0);  
+		else
+         Sky_pixel <= SRAM_DQ(15 downto 8);
+		end if;	
+					
+	end process skyPixelGen;
+  
 
 
   SRAM_DQ <= writedata when write = '1' and sram_mux = '0' else
@@ -109,8 +120,8 @@ BEGIN
   
   readdata <=  SRAM_DQ;
 
-  Sky_pixel<=  (SRAM_DQ(7 downto 0)) when vga_addr_lsb = '0' else
-               (SRAM_DQ(15 downto 8));  
+  --Sky_pixel<=  (SRAM_DQ(7 downto 0)) when vga_addr_lsb = '0' else
+    --           (SRAM_DQ(15 downto 8));  
 
   Sram_mux_out <= sram_mux;
 
