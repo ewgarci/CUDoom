@@ -308,19 +308,19 @@ if rising_edge(clk) then
 				  state<= D;
 
 				  --decrement variables to increase precision
-				  countstep_sig <= "0000" & countstep_sig(31 downto 4);
+				  countstep_sig <= "00000" & countstep_sig(31 downto 5);
 
 				  -- if negative shift in 1's
 				  if ( rayDirX_sig(31 downto 31) = "1") then
-							 rayDirX_sig <= "1111" & rayDirX_sig (31 downto 4);
+							 rayDirX_sig <= "11111" & rayDirX_sig (31 downto 5);
 				  else
-							 rayDirX_sig <= "0000"  & rayDirX_sig(31 downto 4);
+							 rayDirX_sig <= "00000"  & rayDirX_sig(31 downto 5);
 				  end if;
 
 				  if ( rayDirY_sig(31 downto 31) = "1") then
-							 rayDirY_sig <= "1111" & rayDirY_sig (31 downto 4);
+							 rayDirY_sig <= "11111" & rayDirY_sig (31 downto 5);
 				  else
-							 rayDirY_sig <= "0000"  & rayDirY_sig(31 downto 4);
+							 rayDirY_sig <= "00000"  & rayDirY_sig(31 downto 5);
 				  end if;
 
 		when D =>
