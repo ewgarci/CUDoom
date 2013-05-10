@@ -245,7 +245,7 @@ begin
 				end if;
 				texNumSig <= "0000";
 				texNum2Sig <= "0000";
-				sideSig <= '0';
+				sideSig <= '1';
 				boolSig <= '0';
 			end if;
 			

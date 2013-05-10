@@ -43,33 +43,41 @@ end ray_FSM;
 
 architecture imp of ray_FSM is
 
-type rom_type is array(0 to 575) of unsigned (3 downto 0);
+type rom_type is array(0 to 1023) of unsigned (3 downto 0);
 constant MAP_ROM: rom_type := (
 
-  x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",
-  x"9",x"0",x"0",x"7",x"0",x"8",x"0",x"8",x"0",x"0",x"8",x"7",x"0",x"2",x"5",x"2",x"7",x"2",x"5",x"2",x"0",x"5",x"0",x"9",
-  x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"7",x"6",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"0",x"0",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"6",x"9",
-  x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"8",x"7",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"4",x"0",x"0",x"0",x"0",x"0",x"6",x"6",x"6",x"0",x"6",x"6",x"9",
-  x"9",x"8",x"8",x"8",x"0",x"8",x"8",x"8",x"8",x"7",x"8",x"4",x"4",x"4",x"4",x"4",x"4",x"6",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"7",x"7",x"7",x"0",x"7",x"7",x"7",x"7",x"0",x"7",x"0",x"8",x"0",x"8",x"0",x"5",x"4",x"0",x"4",x"0",x"6",x"6",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"5",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"6",x"0",x"0",x"0",x"0",x"7",x"9",
-  x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"6",x"6",x"0",x"6",x"0",x"6",x"0",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"4",x"6",x"0",x"6",x"6",x"9",
-  x"9",x"2",x"7",x"7",x"0",x"7",x"7",x"7",x"5",x"8",x"8",x"4",x"0",x"6",x"8",x"4",x"5",x"3",x"3",x"3",x"0",x"3",x"6",x"9",
-  x"9",x"7",x"2",x"2",x"0",x"2",x"2",x"2",x"2",x"4",x"6",x"4",x"0",x"0",x"6",x"0",x"6",x"3",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"4",x"3",x"0",x"0",x"0",x"0",x"6",x"9",
-  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"4",x"3",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"1",x"4",x"4",x"4",x"4",x"4",x"6",x"0",x"6",x"3",x"3",x"0",x"0",x"0",x"6",x"9",
-  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"2",x"1",x"2",x"2",x"2",x"6",x"6",x"0",x"0",x"5",x"0",x"5",x"0",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"2",x"0",x"0",x"0",x"2",x"2",x"0",x"5",x"0",x"5",x"0",x"0",x"0",x"5",x"9",
-  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"2",x"5",x"0",x"5",x"0",x"5",x"0",x"5",x"0",x"9",
-  x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
-  x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"2",x"5",x"0",x"5",x"0",x"5",x"0",x"5",x"0",x"9",
-  x"9",x"2",x"7",x"2",x"7",x"2",x"7",x"2",x"2",x"2",x"0",x"6",x"0",x"8",x"8",x"0",x"5",x"0",x"5",x"0",x"7",x"0",x"5",x"9",
-  x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9"
+ x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",
+ x"9",x"0",x"0",x"7",x"0",x"8",x"0",x"8",x"0",x"0",x"8",x"7",x"0",x"2",x"5",x"2",x"6",x"2",x"5",x"2",x"0",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"8",x"8",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"5",x"0",x"0",x"6",x"0",x"9",
+ x"9",x"0",x"0",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"8",x"8",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"6",x"0",x"0",x"0",x"6",x"0",x"0",x"9",
+ x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"4",x"0",x"0",x"0",x"0",x"0",x"6",x"6",x"6",x"0",x"6",x"7",x"0",x"0",x"0",x"5",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"8",x"8",x"8",x"0",x"8",x"8",x"8",x"8",x"8",x"8",x"4",x"4",x"4",x"4",x"4",x"4",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"0",x"9",
+ x"9",x"6",x"7",x"7",x"0",x"7",x"7",x"7",x"7",x"0",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"4",x"0",x"4",x"0",x"6",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"0",x"8",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"8",x"6",x"0",x"6",x"0",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"7",x"8",x"0",x"8",x"0",x"8",x"0",x"8",x"8",x"6",x"4",x"6",x"0",x"6",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"7",x"7",x"0",x"7",x"7",x"7",x"7",x"8",x"8",x"4",x"0",x"6",x"8",x"4",x"8",x"3",x"3",x"3",x"0",x"3",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"6",x"2",x"2",x"0",x"2",x"2",x"2",x"2",x"4",x"6",x"4",x"0",x"0",x"6",x"0",x"6",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"6",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"4",x"3",x"0",x"0",x"0",x"0",x"6",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"4",x"0",x"0",x"0",x"0",x"0",x"0",x"4",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"3",x"2",x"0",x"4",x"3",x"0",x"0",x"9",
+ x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"1",x"4",x"4",x"0",x"4",x"4",x"6",x"0",x"6",x"3",x"3",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"2",x"0",x"2",x"2",x"2",x"6",x"6",x"0",x"0",x"5",x"0",x"5",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"2",x"2",x"2",x"0",x"0",x"0",x"2",x"2",x"3",x"5",x"0",x"5",x"0",x"0",x"0",x"5",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"5",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"3",x"4",x"2",x"1",x"1",x"2",x"0",x"4",x"4",x"3",x"1",x"2",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"7",x"2",x"7",x"2",x"2",x"2",x"0",x"7",x"0",x"8",x"8",x"0",x"5",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"7",x"2",x"7",x"2",x"2",x"2",x"0",x"7",x"0",x"8",x"8",x"0",x"5",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"0",x"0",x"0",x"0",x"2",x"2",x"0",x"7",x"0",x"8",x"8",x"0",x"5",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"0",x"2",x"0",x"0",x"0",x"0",x"0",x"7",x"0",x"8",x"8",x"0",x"3",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"0",x"2",x"0",x"2",x"2",x"2",x"0",x"2",x"0",x"8",x"8",x"0",x"5",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"0",x"2",x"0",x"0",x"0",x"1",x"0",x"2",x"0",x"3",x"3",x"0",x"5",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"0",x"2",x"7",x"2",x"0",x"2",x"0",x"1",x"0",x"8",x"8",x"0",x"3",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"2",x"0",x"2",x"7",x"1",x"0",x"1",x"0",x"1",x"0",x"8",x"8",x"0",x"5",x"0",x"4",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"2",x"0",x"0",x"0",x"2",x"7",x"2",x"1",x"2",x"0",x"7",x"0",x"0",x"0",x"0",x"5",x"0",x"0",x"0",x"7",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"0",x"9",
+ x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9",x"9"
 );
 
 
@@ -241,22 +249,16 @@ if rising_edge(clk) then
 
 						 tmp_rayPosX  := posX;
 						 tmp_rayPosY  := posY;
-						 addr := ((tmp_rayPosX (27 downto 22)) & "0000" ) + ((tmp_rayPosX (28 downto 22))& "000") + (tmp_rayPosY (31 downto 22));
+						 addr := ((tmp_rayPosX (26 downto 22)) & "00000" ) + (tmp_rayPosY (31 downto 22));
 
 						 tmp_rayPosX2  := posX;
 						 tmp_rayPosY2  := posY;
-						 addr2 := ((tmp_rayPosX2 (27 downto 22)) & "0000" ) + ((tmp_rayPosX2 (28 downto 22))& "000") + (tmp_rayPosY2 (31 downto 22));
+						 addr2 := ((tmp_rayPosX2 (26 downto 22)) & "00000" )  + (tmp_rayPosY2 (31 downto 22));
 
-
-						 if(addr2<"1001000000" and addr<"1001000000") then
-									mapSpot <= MAP_ROM(to_integer(addr));
-									mapSpot2 <= MAP_ROM(to_integer(addr2));
-									state <= B;
-						 else
-									mapSpot <= x"0";
-									mapSpot2 <= x"0";
-									state <= A;
-						 end if;
+						 
+						 mapSpot <= MAP_ROM(to_integer(addr));
+						 mapSpot2 <= MAP_ROM(to_integer(addr2));
+						 state <= B;
 
 						 colAddr <= colAddrIn;
 
@@ -284,23 +286,16 @@ if rising_edge(clk) then
 
 						 tmp_rayPosX  := unsigned(signed(rayPosX) +      rayDirX_sig);
 						 tmp_rayPosY  := unsigned(signed(rayPosY) + rayDirY_sig);
-						 addr := ((tmp_rayPosX (27 downto 22)) & "0000" ) + ((tmp_rayPosX (28 downto 22))& "000") + (tmp_rayPosY (31 downto 22));
+						 addr := ((tmp_rayPosX (26 downto 22)) & "00000" ) + (tmp_rayPosY (31 downto 22));
 
 						 tmp_rayPosX2  := unsigned(signed(rayPosX2) +    rayDirX_sig);
 						 tmp_rayPosY2  := unsigned(signed(rayPosY2) + rayDirY_sig);
-						 addr2 := ((tmp_rayPosX2 (27 downto 22)) & "0000" ) + ((tmp_rayPosX2 (28 downto 22))& "000") + (tmp_rayPosY2 (31 downto 22));
+						 addr2 := ((tmp_rayPosX2 (26 downto 22)) & "00000" )  + (tmp_rayPosY2 (31 downto 22));
 
 
-						 if(addr2<"1001000000" and addr<"1001000000") then
-									mapSpot <= MAP_ROM(to_integer(addr));
-									mapSpot2 <= MAP_ROM(to_integer(addr2));
-									state <= B;
-						 else
-									mapSpot <= x"0";
-									mapSpot2 <= x"0";
-									state <= A;
-						 end if;
-
+						 mapSpot <= MAP_ROM(to_integer(addr));
+						 mapSpot2 <= MAP_ROM(to_integer(addr2));
+						 state <= B;
 
 				  else
 							 state <= C;
@@ -355,21 +350,15 @@ if rising_edge(clk) then
 
 						 tmp_rayPosX  := unsigned(signed(rayPosX) - rayDirX_sig);
 						 tmp_rayPosY  := unsigned(signed(rayPosY) - rayDirY_sig);
-						 addr := ((tmp_rayPosX (27 downto 22)) & "0000" ) + ((tmp_rayPosX (28 downto 22))& "000") + (tmp_rayPosY (31 downto 22));
+						 addr := ((tmp_rayPosX (26 downto 22)) & "00000" ) + (tmp_rayPosY (31 downto 22));
 
 						 tmp_rayPosX2  := unsigned(signed(rayPosX2) -    rayDirX_sig);
 						 tmp_rayPosY2  := unsigned(signed(rayPosY2) - rayDirY_sig);
-						 addr2 := ((tmp_rayPosX2 (27 downto 22)) & "0000" ) + ((tmp_rayPosX2 (28 downto 22))& "000") + (tmp_rayPosY2 (31 downto 22));
+						 addr2 := ((tmp_rayPosX2 (26 downto 22)) & "00000" )  + (tmp_rayPosY2 (31 downto 22));
 
-						 if(addr2<"1001000000" and addr<"1001000000") then
-									mapSpot <= MAP_ROM(to_integer(addr));
-									mapSpot2 <= MAP_ROM(to_integer(addr2));
-									state <= D;
-						 else
-									mapSpot <= x"0";
-									mapSpot2 <= x"0";
-									state <= A;
-						 end if;
+						 mapSpot <= MAP_ROM(to_integer(addr));
+						 mapSpot2 <= MAP_ROM(to_integer(addr2));
+						 state <= D;
 
 				  end if;
 
@@ -389,24 +378,16 @@ if rising_edge(clk) then
 
 				  tmp_rayPosX := unsigned(signed(rayPosX) +        rayDirX_sig);
 				  tmp_rayPosY := unsigned(signed(rayPosY) +   rayDirY_sig);
-				  addr := ((tmp_rayPosX (27 downto 22)) & "0000" ) + ((tmp_rayPosX (28 downto 22))& "000") + (tmp_rayPosY (31 downto 22));
+				  addr := ((tmp_rayPosX (26 downto 22)) & "00000" ) + (tmp_rayPosY (31 downto 22));
 
 				  tmp_rayPosX2  := unsigned(signed(rayPosX2) +    rayDirX_sig);
 				  tmp_rayPosY2  := unsigned(signed(rayPosY2) + rayDirY_sig);
-				  addr2 := ((tmp_rayPosX2 (27 downto 22)) & "0000" ) + ((tmp_rayPosX2 (28 downto 22))& "000") + (tmp_rayPosY2 (31 downto 22));
+				  addr2 := ((tmp_rayPosX2 (26 downto 22)) & "00000" )  + (tmp_rayPosY2 (31 downto 22));
 
-				  if(addr2<"1001000000" and addr<"1001000000") then
-							 mapSpot <= MAP_ROM(to_integer(addr));
-							 mapSpot2 <= MAP_ROM(to_integer(addr2));
-							 state <= F;
-				  else
-							 mapSpot <= x"0";
-							 mapSpot2 <= x"0";
-							 state <= A;
-				  end if;
-
-
-
+				  mapSpot <= MAP_ROM(to_integer(addr));
+				  mapSpot2 <= MAP_ROM(to_integer(addr2));
+				  state <= F;
+				  
 		when F =>
 				state_out <= "000001000000";
 				  ready <= '0';

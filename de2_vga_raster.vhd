@@ -284,9 +284,9 @@ begin
 --        G_sky :=  Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4 downto 2) & Col_Color_sky(4);
 --        B_sky :=  Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0) & Col_Color_sky(1 downto 0);
 		
-		 R_sky :=  "0" & Col_Color_sky(7 downto 0) & "0";
-       G_sky :=  "0" & Col_Color_sky(7 downto 0) & "0";
-		 B_sky :=   "0" & Col_Color_sky(7 downto 0) & "0" ;
+		 R_sky :=  Col_Color_sky(7 downto 0) & "00";
+       G_sky :=  Col_Color_sky(7 downto 0) & "00";
+		 B_sky :=   Col_Color_sky(7 downto 0) & "00" ;
 		
 		  R_temp := Col_Color(23 downto 16) & "00" ;
         G_temp := Col_Color(15 downto 8) & "00";
