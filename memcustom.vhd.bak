@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity memcustom IS
+	port
+	(
+		clock		: in std_logic  := '1';
+		data		: in std_logic_vector (255 downto 0);
+		rdaddress		: in std_logic_vector(9 downto 0);
+		wraddress		: in std_logic_vector (9 downto 0);
+		wren		: in std_logic  := '0';
+		q		: out std_logic_vector(255 downto 0)
+	);
+end memcustom;
+
+
+architecture rtl OF mem256 is
+
+
+
+
+
+end rtl;

@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for CUDoom
-Fri May 10 20:36:31 2013
+Sat May 11 11:53:59 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Full Version
 
 
@@ -132,8 +132,8 @@ applicable agreement for further details.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; CUDoom.sdc    ; OK     ; Fri May 10 20:36:20 2013 ;
-; cpu_0.sdc     ; OK     ; Fri May 10 20:36:21 2013 ;
+; CUDoom.sdc    ; OK     ; Sat May 11 11:53:48 2013 ;
+; cpu_0.sdc     ; OK     ; Sat May 11 11:53:48 2013 ;
 +---------------+--------+--------------------------+
 
 
@@ -3813,7 +3813,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 12.1 Build 177 11/07/2012 SJ Full Version
-    Info: Processing started: Fri May 10 20:36:13 2013
+    Info: Processing started: Sat May 11 11:53:41 2013
 Info: Command: quartus_sta CUDoom -c CUDoom
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -3934,9 +3934,9 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 510 megabytes
-    Info: Processing ended: Fri May 10 20:36:31 2013
-    Info: Elapsed time: 00:00:18
+    Info: Peak virtual memory: 520 megabytes
+    Info: Processing ended: Sat May 11 11:53:58 2013
+    Info: Elapsed time: 00:00:17
     Info: Total CPU time (on all processors): 00:00:15
 
 

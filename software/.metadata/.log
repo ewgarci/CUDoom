@@ -1,0 +1,1254 @@
+!SESSION 2013-05-03 21:28:39.092 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-05-03 21:29:41.103
+!MESSAGE Indexed 'CUDoom_bsp' (77 sources, 55 headers) in 1.74 sec: 926 declarations; 2,234 references; 113 unresolved inclusions; 5 syntax errors; 193 unresolved names (5.76%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-05-03 21:29:44.384
+!MESSAGE Indexed 'CUDoom' (1 sources, 13 headers) in 0.07 sec: 1 declarations; 1 references; 14 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+!SESSION 2013-05-03 21:31:27.217 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 21:32:40.976
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 21:32:42.931
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 21:42:49.817
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 21:42:52.123
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 22:47:20.560
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 22:47:22.972
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 23:50:26.385
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-03 23:50:28.494
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+!SESSION 2013-05-04 02:17:44.778 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:18:11.741
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-04 02:18:12.950
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:18:13.129
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:20:04.060
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 5-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:20:04.267
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-04 02:20:05.368
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:20:05.551
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:31:03.565
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-04 02:31:04.642
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-04 02:31:04.823
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+!SESSION 2013-05-05 23:04:08.155 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-05 23:06:58.145
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-05 23:06:58.159
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-05 23:07:17.523
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-05 23:07:18.965
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-05 23:07:19.204
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-05 23:57:21.860
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-05 23:57:23.344
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-05 23:57:23.694
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 00:13:36.824
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 00:13:38.320
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 00:13:38.568
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 00:25:21.895
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 00:25:23.378
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 00:25:23.630
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 00:34:21.443
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 00:34:22.929
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 00:34:23.180
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 02:38:34.539
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 02:38:36.030
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 02:38:36.280
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 03:00:07.481
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 03:00:08.987
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 03:00:09.377
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 05:05:33.377
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 05:05:34.849
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 05:05:35.236
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 05:32:06.391
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 05:32:07.872
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 05:32:08.241
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 05:56:53.610
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 05:56:55.084
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 05:56:55.455
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+!SESSION 2013-05-06 23:51:23.263 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 23:52:12.425
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 23:52:14.002
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 23:52:14.114
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 23:52:15.856
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 23:52:15.862
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 23:52:52.079
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-06 23:52:53.578
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-06 23:52:53.686
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 01:33:07.614
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 01:33:09.123
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 01:33:09.238
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 01:35:10.088
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 10-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 01:35:10.255
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 01:35:11.762
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 01:35:11.868
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 07:40:34.502
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 07:40:36.003
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 07:40:36.114
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 11:49:59.233
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 11:50:00.758
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 11:50:00.885
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 11:56:04.693
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 10-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 11:56:04.899
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 11:56:06.447
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 11:56:06.557
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 12:00:39.021
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 10-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 12:00:39.211
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 12:00:40.737
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 12:00:40.848
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 12:31:43.318
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 12:31:44.875
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 12:31:44.998
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+!SESSION 2013-05-07 22:00:00.083 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:00:27.751
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:00:29.508
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:00:29.616
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:00:31.385
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:00:31.390
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:00:46.442
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:00:48.020
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:00:48.128
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 10-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:00:49.974
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 10-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:00:49.977
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:01:09.397
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:01:10.866
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:01:10.972
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:16:40.587
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:16:42.184
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:16:42.299
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:19:05.011
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:06.556
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:19:06.725
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:19.289
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:19.292
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:19:31.223
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:33.039
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:19:33.445
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:35.471
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:35.475
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:19:50.626
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:19:52.164
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:19:52.344
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:45:53.894
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:45:55.470
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:45:55.765
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:46:09.067
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 4, 'other error'
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:46:09.070
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:46:32.897
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:46:34.442
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:46:34.605
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:48:10.487
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:48:11.704
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-07 22:48:13.685
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-07 22:48:13.837
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 08:29:15.708
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 08:29:17.513
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 08:29:17.642
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 08:29:22.008
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 08:29:30.242
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 08:29:31.870
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 08:29:32.162
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 10:43:11.107
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 10:43:11.425
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 10:43:13.014
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 10:43:13.216
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:04:36.287
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 15:04:37.885
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:04:42.858
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:06:55.624
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 15:06:57.262
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:06:57.502
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:08:49.313
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:08:49.788
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 15:08:51.395
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 15:08:51.525
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:04:25.884
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 20:04:27.469
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:04:27.753
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:05:50.347
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:05:50.618
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 20:05:52.150
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:05:52.450
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:07:18.945
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-08 20:07:20.582
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-08 20:07:20.899
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:36:29.684
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 02:36:31.233
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:36:31.509
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:38:30.558
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:38:50.931
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 02:38:52.504
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:38:52.709
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:40:24.851
+!MESSAGE Terminated Launch with connection: 11USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:40:45.289
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 02:40:46.898
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 02:40:47.184
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+!SESSION 2013-05-09 03:33:21.458 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-05-09 03:33:25.476
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 03:55:04.604
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 03:55:06.329
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 03:55:06.438
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 03:55:08.491
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom/CUDoom.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 03:55:08.496
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-05-09 04:01:47.526
+!MESSAGE Indexed 'CUDoom_2_bsp' (77 sources, 55 headers) in 1.95 sec: 921 declarations; 2,198 references; 113 unresolved inclusions; 5 syntax errors; 193 unresolved names (5.83%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-05-09 04:01:58.044
+!MESSAGE Indexed 'CUDoom_2' (1 sources, 13 headers) in 0.16 sec: 1 declarations; 1 references; 14 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:05:26.425
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:05:28.575
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:05:28.689
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:05:32.172
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:05:32.175
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:07:01.026
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:07:03.020
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:07:03.140
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:07:05.537
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:07:05.539
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:07:34.888
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:07:36.870
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:07:36.978
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:07:39.249
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:07:39.253
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:10:02.836
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:10:04.826
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:10:04.943
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:10:07.238
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:10:07.242
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:10:39.745
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --stop]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:10:41.740
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --stop] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:10:41.856
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=1 --go /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:10:44.089
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=1, --go, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:10:44.093
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:11:21.585
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:11:28.588
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:34:21.296
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:34:23.687
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:34:38.694
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 134
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 04:34:38.698
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:35:10.804
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 04:35:13.248
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:51:00.961
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:51:03.225
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:52:27.249
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:52:27.602
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:52:29.928
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:53:19.654
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:53:21.893
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 08:53:24.110
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-09 09:41:16.034 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 09:42:51.219
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 09:42:52.783
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 09:42:52.892
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 09:47:50.424
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 09:47:50.562
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 09:47:52.135
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 09:47:52.259
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-09 15:54:30.131 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:02:19.547
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:02:21.398
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:02:21.498
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:09:24.795
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:09:25.352
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:09:27.045
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:09:27.197
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:09:29.545
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 2, no processors found
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:09:29.550
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:09:43.413
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:09:45.077
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:09:45.185
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-09 16:16:21.558 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:16:47.366
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:16:49.132
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:16:49.235
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:20:39.717
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:20:41.554
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:20:46.453
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:21:52.259
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:21:53.803
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:21:53.949
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-09 16:46:18.624 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:46:39.984
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:46:41.254
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:46:41.433
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:46:42.801
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:46:42.804
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:46:52.017
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:46:53.102
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:46:53.282
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:46:54.695
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:46:54.698
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:47:12.016
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 16:47:13.099
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 16:47:13.280
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 17:15:44.296
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 17:15:45.379
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 17:15:45.569
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 17:18:25.927
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 5-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 17:18:26.144
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 17:18:27.240
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 17:18:27.419
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-09 19:18:16.395 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-05-09 19:18:18.022
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 19:18:40.584
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-09 19:18:41.797
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-09 19:18:41.975
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 05:51:46.567 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 05:52:04.252
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:06.032
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 05:52:06.145
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:08.051
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:08.057
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 05:52:22.538
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:24.015
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 05:52:24.130
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 5-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:25.960
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 5-1]', --device=1, --instance=0, --go, --accept-bad-sysid, /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:25.964
+!MESSAGE Downloading ELF Process failed
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 05:52:47.874
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 05:52:49.457
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 05:52:49.577
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 07:41:03.668 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 07:42:39.940
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 07:42:39.949
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 07:43:12.541
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 07:43:14.174
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 07:43:18.715
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 08:10:25.814
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 08:10:27.416
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 08:10:27.554
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 08:24:33.345 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-05-10 08:24:35.771
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 08:25:03.694
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 08:25:05.482
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 08:25:05.586
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 09:08:41.530 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 09:09:05.229
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 09:09:07.122
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 09:09:07.227
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 12:58:26.633
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 12:58:28.190
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 12:58:28.355
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 16:39:44.395 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:40:04.932
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 16:40:06.769
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:40:06.882
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:44:12.944
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:44:13.317
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 16:44:14.928
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:44:19.400
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:44:58.102
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 16:44:59.661
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 16:44:59.762
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 17:04:10.331 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:04:49.069
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:04:50.729
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:04:50.840
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:06:30.347
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:06:30.834
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:06:32.933
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:06:33.317
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 17:10:54.085 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:11:46.963
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:11:46.973
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:12:12.934
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:12:12.936
+!MESSAGE Unable to validate connection settings.
+!STACK 0
+java.lang.Exception
+	at com.altera.embeddedsw.flash.model.internal.SystemConsoleConnectionModel.validateConnectionSettings(SystemConsoleConnectionModel.java:555)
+	at com.altera.sbtgui.launch.hardware.AbstractNios2CLaunchDelegate.launch(AbstractNios2CLaunchDelegate.java:115)
+	at com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchDelegate.launch(Nios2HardwareLaunchDelegate.java:98)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:12:33.219
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:12:34.859
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:12:35.027
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:14:55.617
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:14:56.177
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 17:14:57.910
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 17:14:58.309
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-10 20:36:41.031 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 20:37:53.937
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 20:37:55.756
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 20:37:55.864
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 20:38:22.272
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB 11-1]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 20:38:22.634
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-10 20:38:24.359
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-10 20:38:24.462
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-11 15:03:10.185 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-11 15:43:16.052
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-11 15:43:17.920
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-11 15:43:18.027
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]
+!SESSION 2013-05-11 18:41:16.960 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_23
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -perspective com.altera.sbtgui.ui.cPerspective
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product -data /home/user2/spring13/ag3287/CUDoom/software -perspective com.altera.sbtgui.ui.cPerspective
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-11 18:41:42.074
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=Not Found]
+
+!ENTRY com.altera.sbtgui.launch 4 0 2013-05-11 18:41:43.997
+!MESSAGE Failed Executing: [nios2-download, '--cable=USB-Blaster on localhost [USB 11-1]', --device=1, --instance=0, --stop, --accept-bad-sysid, --sidp=Not Found] return code: 8
+
+!ENTRY com.altera.sbtgui.launch 1 0 2013-05-11 18:41:44.126
+!MESSAGE Executing: [/bin/bash, -c, nios2-download '--cable=USB-Blaster on localhost [USB 11-1]' --device=1 --instance=0 --go --accept-bad-sysid /home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/CUDoom_2.elf]

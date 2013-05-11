@@ -1,0 +1,18 @@
+
+**** Build of configuration Nios II for project CUDoom ****
+
+make all 
+Info: Building ../CUDoom_bsp/
+make --no-print-directory -C ../CUDoom_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../CUDoom_bsp//HAL/inc -I../CUDoom_bsp/ -I../CUDoom_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -EL -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/hello_world.o hello_world.c
+hello_world.c:45: warning: missing braces around initializer
+hello_world.c:45: warning: (near initialization for 'worldMap[0]')
+hello_world.c: In function 'main':
+hello_world.c:193: error: 'DE2_PS2_0_BASE' undeclared (first use in this function)
+hello_world.c:193: error: (Each undeclared identifier is reported only once
+hello_world.c:193: error: for each function it appears in.)
+make: *** [obj/default/hello_world.o] Error 1
+
+**** Build Finished ****
