@@ -11,7 +11,7 @@ entity memcustom is
 		--wraddress	: in unsigned(9 downto 0);
 		--wren		: in std_logic  := '0';
 		rd_req : in std_logic := '0' ;
-		VGA_BLANK : in std_logic := '0';
+		--VGA_BLANK : in std_logic := '0';
 		row_in  : in unsigned (9 downto 0);
 		row_out : out unsigned (9 downto 0);
 		
@@ -121,9 +121,10 @@ process (clock)
 begin
 
 if (rising_edge(clock)) then	
-	blank_prev <= VGA_BLANK;
-	
-	if blank_prev = '0' and VGA_BLANK = '1' then
+	 
+	 --data(242) is VGA_BLANK from FSM through FIFO
+	--blank_prev <= data(242);
+	if wren = '1' and data(242) = '1' then
 		toggle <= not toggle;
 	end if;	
 	

@@ -246,6 +246,7 @@ architecture datapath of top is
 	signal rdempty_sig : std_logic;
 	signal wrfull_sig : std_logic;
 	signal rdreq_sig : std_logic;
+	signal  VGA_BLANK_OUT  : std_logic;
 	signal q_fifo  : std_logic_vector (255 downto 0);
 	
 begin
@@ -395,7 +396,8 @@ begin
   
   V9: ENTITY work.FIFO port map(
 		data		=> x"FFF" &
-							"00" &
+							"0" &
+							VGA_BLANK_OUT &
 							std_logic_vector (colAddrOut) &
 							std_logic_vector(texNum2) &
 							std_logic_vector(texNum) &
@@ -446,7 +448,7 @@ begin
 --		wraddress	=> colAddrOut,
 --		wraddress	=>  data_out(255 downto 246),
 		--wren	 		=> write_en,
-   	VGA_BLANK   => VGA_BLANK_SIG,
+   	--VGA_BLANK   => VGA_BLANK_SIG,
 		row_in      => cur_row,
 		row_out     => cur_row_from_mem,
 --		wren	 		=> ctrl,
@@ -496,6 +498,7 @@ begin
 				clk           => clk_sys,
 				control       =>  ctrl,
 				VGA_BLANK     => VGA_BLANK_SIG,
+				VGA_BLANK_OUT => VGA_BLANK_OUT,
 				wrfull	=> wrfull_sig ,
 				posX 			  => unsigned(data_out(31 downto 0)),
 				posY 			  => unsigned(data_out(63 downto 32)),

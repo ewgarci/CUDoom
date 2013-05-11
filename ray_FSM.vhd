@@ -37,6 +37,7 @@ entity ray_FSM is
 					colAddrOut      : out unsigned (9 downto 0);
 					state_out       : out std_logic_vector (11 downto 0);
 					WE              : out std_logic;
+					VGA_BLANK_OUT   : out std_logic;
 					ready           : out std_logic
 );
 end ray_FSM;
@@ -228,6 +229,8 @@ if rising_edge(clk) then
 				  state_out <= "100000000000";
 				  ready <= '1';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
+				  
 				  if (controlprev = '0' and control = '1') then
 						 count <= x"00000000";
 						 count2 <= x"00000000";
@@ -270,6 +273,8 @@ if rising_edge(clk) then
 				  state_out <= "010000000000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
+				  
 				  inc_limit1 <= inc_limit1 - 1;
 				  if (mapSpot2 < x"5" and inc_limit1 > "000000000000" ) then
 
@@ -302,9 +307,11 @@ if rising_edge(clk) then
 				  end if;
 
 		when C =>
-					state_out <= "001000000000";
+				  state_out <= "001000000000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
+				  
 				  state<= D;
 
 				  --decrement variables to increase precision
@@ -324,9 +331,11 @@ if rising_edge(clk) then
 				  end if;
 
 		when D =>
-					state_out <= "000100000000";
+				  state_out <= "000100000000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
+				  
 				  inc_limit2 <= inc_limit2 - 1;
 
 				  if( (mapSpot = x"0" and mapSpot2 < x"5") or inc_limit2 = "000000") then
@@ -367,6 +376,7 @@ if rising_edge(clk) then
 				  state_out <= "000010000000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
 
 				  count <= count + countstep_sig;
 				  rayPosX <= unsigned(signed(rayPosX) +    rayDirX_sig);
@@ -392,6 +402,8 @@ if rising_edge(clk) then
 				state_out <= "000001000000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
+				  
 				  inc <= "11111";
 
 				  countshift <= "0000000000"      & count(31 downto 10);
@@ -422,6 +434,7 @@ if rising_edge(clk) then
 				  state_out <= "000000100000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
 
 				  if (inc =  "00000") then
 							 state <= H;
@@ -486,6 +499,7 @@ if rising_edge(clk) then
 				  state_out <= "000000010000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
 
 				  if (mapSpot > x"4") then
 							 bool <= '1';
@@ -531,6 +545,8 @@ if rising_edge(clk) then
 				  state_out <= "000000001000";
 				  ready <= '0';
 				  WE<='0';
+				  VGA_BLANK_OUT <= '0';
+				  
 				  if (wrfull = '1') then
 						state <= I;
 				  else
@@ -539,34 +555,28 @@ if rising_edge(clk) then
 		when J =>
 				  state_out <= "000000000100";
 				  ready <= '0';
-				  WE<='1';
-				  state <= K;		  
-				  
---		when K =>
---				  state_out <= "000000000010";
---				  ready <= '0';
---				  WE<='0';
---				  state <= L;
+				  VGA_BLANK_OUT <= '0';
+				  if (colAddr >= "1001111111") then
+						state <= K;
+						WE<='0';	
+				  else
+						WE<='1';	
+						state <= A;
+				  end if;
 				  
 		when K =>
 				  state_out <= "000000000010";
 				  ready <= '0';
-				  WE<='0';
-				  if (colAddr >= "1001111111") then
-						state <= L;
-				  else
-						state <= A;
-				  end if;
-		when L =>
-				  state_out <= "000000000001";
-				  ready <= '0';
-				  WE<='0';
 				  if (VGA_BLANK = '1') then
 						state <= A;
+						WE<='1';
+						VGA_BLANK_OUT <= '1';
 				  else
-				      state <= L;
+						VGA_BLANK_OUT <= '0';
+				      state <= K;
+						WE<='0';
 				  end if;
-
+				  
 		when others =>
 				  state_out <= "111111111111";
 				  state <= A;
