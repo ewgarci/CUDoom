@@ -29,3 +29,11 @@ read_code.C 0 0 0 1 0 1
 read_code.D 0 0 1 0 0 1 
 read_code.E 0 1 0 0 0 1 
 read_code.F 1 0 0 0 0 1 
+
+State Machine - |top|new_doom:V1|de2_ps2_1:the_de2_ps2_1|de2_ps2:de2_ps2_1|state
+Name state.E state.D state.C state.B state.A 
+state.A 0 0 0 0 0 
+state.B 0 0 0 1 1 
+state.C 0 0 1 0 1 
+state.D 0 1 0 0 1 
+state.E 1 0 0 0 1 

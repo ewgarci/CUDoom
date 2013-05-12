@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="33" version="2.0">
+<workbench progressCount="32" version="2.0">
 <workbenchAdvisor/>
 <window height="986" width="1271" x="1281" y="1">
 <fastViewData fastViewLocation="1024"/>
@@ -46,7 +46,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="hello_world.c" partName="hello_world.c" path="/home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/hello_world.c" title="hello_world.c" tooltip="CUDoom_2/hello_world.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CUDoom_2/hello_world.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8829" selectionTopPixel="6965"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8029" selectionTopPixel="4971"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="sky.h" partName="sky.h" path="/home/user2/spring13/ag3287/CUDoom/software/CUDoom_2/sky.h" title="sky.h" tooltip="CUDoom_2/sky.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CUDoom_2/sky.h"/>
@@ -63,9 +63,6 @@
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="411" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="435"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -304,12 +301,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CUDoom_2/hello_world.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CUDoom/hello_world.c"/>
 </editors>
-<item historyLabel="sky.h" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="hello_world.c" index="0">
-<position info="not_deleted" x="6202" y="0"/>
-</item>
 <item historyLabel="hello_world.c" index="4">
 <position info="not_deleted" x="14662" y="0"/>
 </item>
@@ -451,8 +442,14 @@
 <item historyLabel="hello_world.c" index="13">
 <position info="not_deleted" x="6275" y="0"/>
 </item>
-<item active="true" historyLabel="hello_world.c" index="12">
+<item historyLabel="hello_world.c" index="12">
 <position/>
+</item>
+<item historyLabel="hello_world.c" index="12">
+<position info="not_deleted" x="8043" y="0"/>
+</item>
+<item active="true" historyLabel="hello_world.c" index="12">
+<position info="not_deleted" x="7617" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

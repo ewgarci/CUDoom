@@ -15569,7 +15569,26 @@ PS2_Data => de2_ps2:de2_ps2_1.PS2_Data
 
 |top|new_doom:V1|de2_ps2_1:the_de2_ps2_1|de2_ps2:de2_ps2_1
 clk => ps2_ctrl:U1.Clk
+clk => reg.CLK
+clk => DataLock[0].CLK
+clk => DataLock[1].CLK
+clk => DataLock[2].CLK
+clk => DataLock[3].CLK
+clk => DataLock[4].CLK
+clk => DataLock[5].CLK
+clk => DataLock[6].CLK
+clk => DataLock[7].CLK
+clk => Data[0].CLK
+clk => Data[1].CLK
+clk => Data[2].CLK
+clk => Data[3].CLK
+clk => Data[4].CLK
+clk => Data[5].CLK
+clk => Data[6].CLK
+clk => Data[7].CLK
+clk => DataAvailable.CLK
 clk => DoRead.CLK
+clk => state~1.DATAIN
 reset => ps2_ctrl:U1.Reset
 address => DoRead.IN1
 address => readdata.OUTPUTSELECT

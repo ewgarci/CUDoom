@@ -188,6 +188,10 @@ int main()
 
   int k;
   int k2;
+  int forward = 0;
+  int backward = 0;
+  int left = 0;
+  int right = 0;
   //char key[] = { 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d','d','d','d','d','d','d','d','d',
 //		  'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d', 'd','d','d','d','d','d','d','d','d','d','d','d','d','d','d','d'};
 
@@ -209,9 +213,9 @@ int main()
 //		code = IORD_8DIRECT(DE2_PS2_0_BASE, 0);
 
 //		if (code)
-			code = IORD_8DIRECT(DE2_PS2_1_BASE, 1);
 
-//		printf("%c, %x, %d\n", code, code, code);
+
+	//printf("%c, %x, %d\n", code, code, code);
 
 		/* Get received byte */
 
@@ -220,6 +224,47 @@ int main()
 	  //hardwareData = IORD_RAM_DATA(NIOSINTERFACE_1_0_BASE, 1);
 	  //printf("%d\n", hardwareData >> 4);
 
+	  code = IORD_8DIRECT(DE2_PS2_1_BASE, 1);
+
+	  switch(code)
+	  {
+	  	  case 'u':
+	  		  forward = 1;
+	  		  backward = 0;
+	  		  break;
+	  	  case 'r':
+	  		  forward = 0;
+	  		  backward = 1;
+	  		  break;
+	  	  case 't':
+	  		  right = 1;
+	  		  left = 0;
+	  		  break;
+	  	  case 'k':
+	  		  left = 1;
+	  		  right = 0;
+	  		  break;
+	  	  case 'U':
+	  		  forward = 0;
+	  		  break;
+	  	  case 'R':
+	  		  backward = 0;
+	  		  break;
+	  	  case 'T':
+	  		  right = 0;
+	  		  break;
+	  	  case 'K':
+	  		  left = 0;
+	  		  break;
+
+	  	  case ')':
+	  		forward = 0;
+	  		backward = 0;
+	  		right = 0;
+	  		left = 0;
+	  		break;
+
+	  }
 
      x = 0;
     for(k = -halfScreenWidth; k < halfScreenWidth; k++)
@@ -257,8 +302,6 @@ int main()
     //  printf("%d\n", hardwareData);
      DrawAccelerate(angle, posX, posY, count_step, rayDirX, rayDirY, x);
      IOWR_RAM_DATA(NIOSINTERFACE_1_0_BASE, 0, 0);
-
-
 
      hardwareData = IORD_32DIRECT(NIOSINTERFACE_1_0_BASE, 1);
 
@@ -412,7 +455,7 @@ int main()
 
 
     //move forward if no wall in front of you
-    if (code =='u')
+    if (forward == 1)
     {
         move = dircosine[dir]>>4;
         if(worldMap[(posX + move)>>posShift][posY>>posShift] == 0)
@@ -423,7 +466,7 @@ int main()
                 posY += move;
     }
     //move backwards if no wall behind you
-    if (code =='r')
+    if (backward == 1)
     {
         move = dircosine[dir]>>4;
         if(worldMap[(posX - move)>>posShift][posY>>posShift] == 0)
@@ -434,7 +477,7 @@ int main()
                 posY -= move;
     }
     //rotate to the right
-    if (code == 't')
+    if (right == 1)
     {
       //both camera direction and camera plane must be rotated
        dir += 13;
@@ -443,7 +486,7 @@ int main()
            dir -= lookupLength;
     }
     //rotate to the left
-    if (code =='k')
+    if (left == 1)
     {
       //both camera direction and camera plane must be rotated
         dir -= 13;

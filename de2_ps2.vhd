@@ -188,8 +188,16 @@ end de2_ps2;
 architecture rtl of de2_ps2 is
 
   signal Data          : unsigned(7 downto 0);
-  signal DataAvailable : std_logic;
+  signal Data_in       : unsigned(7 downto 0);
+  signal DataLock      : unsigned(7 downto 0) := "00000000";
+  signal DataAvailable : std_logic ;
+  signal DataAvailable_in : std_logic;
+  signal reg : std_logic := '0';
   signal DoRead        : std_logic;
+  type state_type is (A, B, C, D, E);
+  signal state   : state_type := A;
+  signal inc      : unsigned (7 downto 0) := "11111111";
+  
 
 begin
   
@@ -199,15 +207,55 @@ begin
     DoRead    => DoRead,
     PS2_Clk   => PS2_Clk,
     PS2_Data  => PS2_Data,
-    Scan_Code => Data,
-    Scan_DAV  => DataAvailable );
+    Scan_Code => Data_in,
+    Scan_DAV  => DataAvailable_in );
 
   process (clk)
   begin
     if rising_edge(clk) then
-      DoRead <= read and chipselect and address;      
+      DoRead <= read and chipselect and address;
+		DataAvailable <= DataAvailable_in;
+		
+		case state is
+				when A=>
+					Data <= Data_in;
+					if Data_in = x"F0" and DataAvailable_in = '1' then
+						 state <= B;
+					else
+						 state <= A;
+					end if;
+					DataLock <= Data_in;
+					reg <= '0';
+				when B=>
+					Data <= Data_in;
+					if Data_in = x"F0" and DataAvailable_in = '1' then
+						 state <= B;
+					else	
+						state <= C;
+					end if;
+					DataLock <= Data_in;
+					reg <= '0';
+				when C=>
+					Data <= Data_in - 32;
+					--hold state if value doesn't change
+					if (DataAvailable_in = '1') then
+						reg <= '1';
+					end if;
+					
+					DataLock <= Data_in;	
+					-- if data hasn't become available or data hasn't changed
+					if (DataLock = Data_in or reg = '0') then
+						state <= C;
+					else
+						state <= A;
+					end if;
+					
+				when others =>
+					state <= A;
+		end case;
+		
     end if;  
-  end process;
+  end process; 
   
   process (Data, DataAvailable, address, chipselect)
   begin
